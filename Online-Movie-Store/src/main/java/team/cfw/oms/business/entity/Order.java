@@ -5,6 +5,7 @@ import team.cfw.oms.base.entity.Movie;
 import team.cfw.oms.base.entity.User;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -29,6 +30,8 @@ public class Order {
     private String receiverAddress;
 
     private String receiverPhoneNumber;
+
+    private Date orderedDate;
 
     public String getId() {
         return id;
@@ -76,5 +79,13 @@ public class Order {
 
     public void setReceiverPhoneNumber(String receiverPhoneNumber) {
         this.receiverPhoneNumber = receiverPhoneNumber;
+    }
+
+    public Date getOrderedDate() {
+        return orderedDate;
+    }
+
+    public void setOrderedDate(Date orderedDate) {
+        this.orderedDate = orderedDate;
     }
 }
