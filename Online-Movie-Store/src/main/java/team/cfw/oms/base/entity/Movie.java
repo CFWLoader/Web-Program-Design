@@ -1,10 +1,10 @@
 package team.cfw.oms.base.entity;
 
 import org.hibernate.annotations.GenericGenerator;
+import team.cfw.oms.business.entity.Order;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by CFWLoader on 10/25/16.
@@ -22,6 +22,9 @@ public class Movie {
     private String linkAddress;
 
     private String picAddress;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private Set<Order> orders;
 
     public String getId() {
         return id;
@@ -53,5 +56,13 @@ public class Movie {
 
     public void setPicAddress(String picAddress) {
         this.picAddress = picAddress;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }

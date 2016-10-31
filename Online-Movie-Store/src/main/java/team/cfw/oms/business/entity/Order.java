@@ -12,6 +12,7 @@ import java.util.Set;
  * Created by CFWLoader on 10/26/16.
  */
 @Entity
+@Table(name = "t_order")
 public class Order {
 
     @Id
@@ -22,7 +23,7 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User user;
 
-    @OneToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Movie> movies;
 
     private String receiverName;

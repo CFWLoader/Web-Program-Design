@@ -14,6 +14,6 @@
         <!-- 格式化sql -->
         <property name="format_sql">true</property>
         <!-- 更新表不存在时新建 -->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create-drop</property>
     </session-factory>
 </hibernate-configuration>
