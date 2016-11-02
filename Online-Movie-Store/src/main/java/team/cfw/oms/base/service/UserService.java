@@ -9,4 +9,5 @@ public interface UserService {
 
     boolean addNewUser(User user);
 
+    boolean checkUsernameExistence(String username);
 }

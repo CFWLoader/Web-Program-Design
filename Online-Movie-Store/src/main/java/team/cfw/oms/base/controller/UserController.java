@@ -43,10 +43,21 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/checkUsernameExistance")
-    public @ResponseBody Map<String, String> checkUsernameExistance(String username)
+    @RequestMapping("/checkUsernameExistence")
+    public @ResponseBody Map<String, String> checkUsernameExistence(String username)
     {
         Map<String, String> hashMap = new HashMap<String, String>();
+
+        boolean isExisted = userService.checkUsernameExistence(username);
+
+        if(isExisted)
+        {
+            hashMap.put("result", "existed");
+        }
+        else
+        {
+            hashMap.put("result", "notExited");
+        }
 
         return hashMap;
     }

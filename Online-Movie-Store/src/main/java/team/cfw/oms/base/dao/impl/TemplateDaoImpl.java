@@ -18,7 +18,7 @@ import java.util.List;
 public class TemplateDaoImpl<T> implements TemplateDao<T> {
 
     @Resource
-    private HibernateTemplate hibernateTemplate;
+    protected HibernateTemplate hibernateTemplate;
 
     protected Class<T> clazz;
 
