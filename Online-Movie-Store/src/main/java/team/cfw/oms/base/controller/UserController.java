@@ -59,6 +59,8 @@ public class UserController {
             hashMap.put("result", "notExited");
         }
 
+        // System.out.println(hashMap.get("result"));
+
         return hashMap;
     }
 }

@@ -14,25 +14,50 @@
     <script type="text/javascript" src="<%=AppContext.getBaseUrl()%>/resource/lib/jquery-3.1.1.min.js"></script>
 
     <script type="text/javascript">
-        function checkUsernameExistence()
-        {
+        function checkUsernameExistence() {
             $.ajax({
-                type : "post",
-                url : "<%=AppContext.getBaseUrl()%>/user/checkUsernameExistence",
-                data : {
-                    username : $("#username").val()
+                type: "post",
+                url: "<%=AppContext.getBaseUrl()%>/user/checkUsernameExistence",
+                data: {
+                    username: $("#username").val()
                 },
                 dataType: "json",
-                success:function(data){
-                    echoFunc(data);
-                }
+                success: function (data, status) {
+                    alert(data.result);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown){
+                    alert(XMLHttpRequest.status);
 
+                    alert(XMLHttpRequest.readyState);
+
+                    alert(textStatus);
+
+                    alert(errorThrown);
+                }
             });
         }
 
-        function echoFunc(data)
-        {
-            alert(data);
+        function checkUsernameExistence1() {
+            $.post("<%=AppContext.getBaseUrl()%>/user/checkUsernameExistence",
+                    {
+                        username: $("#username").val()
+                    },
+                    function (data, status) {
+
+                        alert("!!!");
+
+                        if (data.result == "success") {
+                            alert("!!!");
+                            return;
+                        }
+                        else {
+                            var alert = generate('error', data.result);
+                            setTimeout(function () {
+                                $.noty.close(alert.options.id);
+                            }, 2000);
+                        }
+                    },
+                    "json");
         }
     </script>
 </head>
