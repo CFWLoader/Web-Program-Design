@@ -19,6 +19,8 @@ public class Movie {
 
     private String movieName;
 
+    private double price;
+
     private String linkAddress;
 
     private String picAddress;
@@ -40,6 +42,14 @@ public class Movie {
 
     public void setMovieName(String movieName) {
         this.movieName = movieName;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getLinkAddress() {
