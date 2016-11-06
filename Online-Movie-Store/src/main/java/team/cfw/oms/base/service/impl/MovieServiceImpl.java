@@ -7,6 +7,7 @@ import team.cfw.oms.base.service.MovieService;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Created by CFWLoader on 10/26/16.
@@ -27,5 +28,13 @@ public class MovieServiceImpl implements MovieService {
         }
 
         return true;
+    }
+
+    public List<Movie> getAllMovies() {
+        return movieDao.getEntities();
+    }
+
+    public Movie getMovieByMovieId(String movieId) {
+        return movieDao.getEntityById(movieId);
     }
 }

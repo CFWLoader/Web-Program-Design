@@ -1,7 +1,7 @@
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,26 +14,32 @@
     <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/bt3-css/bootstrap.min.css" rel="stylesheet">
     <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/bt3-css/style.css" rel="stylesheet">
 
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<h3 class="text-center">
-				Welcome! Administrator.
-			</h3>
-			<ul>
-				<li>
-					<a href="<%=AppContext.getBaseUrl()%>/admin/addMoviePage">Add a movie.</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center">
+                Welcome! Administrator.
+            </h3>
+            <ul>
+                <li>
+                    <a href="<%=AppContext.getBaseUrl()%>/admin/addMoviePage">Add a movie.</a>
+                </li>
+                <li>
+                    <a href="<%=AppContext.getBaseUrl()%>/admin/movieColumnManagePage">Manage movie column.</a>
+                </li>
+                <li>
+                    <a href="<%=AppContext.getBaseUrl()%>/admin/showMovieColumnPage">Show movie column.</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 
-    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/bt3-js/jquery.min.js"></script>
-    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/bt3-js/bootstrap.min.js"></script>
-    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/bt3-js/scripts.js"></script>
-  </body>
+<script src="<%=AppContext.getBaseUrl()%>/resource/lib/bt3-js/jquery.min.js"></script>
+<script src="<%=AppContext.getBaseUrl()%>/resource/lib/bt3-js/bootstrap.min.js"></script>
+<script src="<%=AppContext.getBaseUrl()%>/resource/lib/bt3-js/scripts.js"></script>
+</body>
 </html>
