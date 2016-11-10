@@ -25,6 +25,9 @@ public class Movie {
 
     private String picAddress;
 
+    @Column(columnDefinition = "LONGTEXT")
+    private String description;
+
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Order> orders;
 
@@ -74,5 +77,13 @@ public class Movie {
 
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -13,6 +13,7 @@ import team.cfw.oms.base.service.CacheDataManageService;
 import team.cfw.oms.base.service.MovieService;
 import team.cfw.oms.business.entity.Order;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
@@ -25,10 +26,10 @@ import java.util.*;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Autowired
+    @Resource
     private MovieService movieService;
 
-    @Autowired
+    @Resource
     private CacheDataManageService cacheDataManageService;
 
     @RequestMapping("")
