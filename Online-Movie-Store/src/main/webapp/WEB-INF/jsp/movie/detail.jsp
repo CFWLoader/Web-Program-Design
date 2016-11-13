@@ -1,3 +1,4 @@
+<%@ page import="team.cfw.oms.base.util.AppContext" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,19 +21,19 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 
     <!-- styles -->
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/font-awesome.css" rel="stylesheet">
+    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/animate.min.css" rel="stylesheet">
+    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/owl.carousel.css" rel="stylesheet">
+    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/owl.theme.css" rel="stylesheet">
 
     <!-- theme stylesheet -->
     <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
     <!-- your stylesheet with modifications -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/custom.css" rel="stylesheet">
 
-    <script src="js/respond.min.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/respond.min.js"></script>
 
     <link rel="shortcut icon" href="favicon.png">
 
@@ -103,9 +104,9 @@
         <div class="container">
             <div class="navbar-header">
 
-                <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
-                    <img src="img/logo.png" alt="Obaju logo" class="hidden-xs">
-                    <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+                <a class="navbar-brand home" href="<%=AppContext.getBaseUrl()%>/index" data-animate-hover="bounce">
+                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/logo.png" alt="Obaju logo" class="hidden-xs">
+                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
@@ -126,7 +127,7 @@
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="index.html">Home</a>
+                    <li class="active"><a href="<%=AppContext.getBaseUrl()%>/index">Home</a>
                     </li>
                     <li class="dropdown yamm-fw">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Men <b class="caret"></b></a>
@@ -265,12 +266,12 @@
                                         <div class="col-sm-3">
                                             <div class="banner">
                                                 <a href="#">
-                                                    <img src="img/banner.jpg" class="img img-responsive" alt="">
+                                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/banner.jpg" class="img img-responsive" alt="">
                                                 </a>
                                             </div>
                                             <div class="banner">
                                                 <a href="#">
-                                                    <img src="img/banner2.jpg" class="img img-responsive" alt="">
+                                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/banner2.jpg" class="img img-responsive" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -290,7 +291,7 @@
                                         <div class="col-sm-3">
                                             <h5>Shop</h5>
                                             <ul>
-                                                <li><a href="index.html">Homepage</a>
+                                                <li><a href="<%=AppContext.getBaseUrl()%>/index">Homepage</a>
                                                 </li>
                                                 <li><a href="category.html">Category - sidebar left</a>
                                                 </li>
@@ -562,7 +563,7 @@
 
                     <div class="banner">
                         <a href="#">
-                            <img src="img/banner.jpg" alt="sales 2014" class="img-responsive">
+                            <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/banner.jpg" alt="sales 2014" class="img-responsive">
                         </a>
                     </div>
                 </div>
@@ -572,7 +573,7 @@
                     <div class="row" id="productMain">
                         <div class="col-sm-6">
                             <div id="mainImage">
-                                <img src="img/detailbig1.jpg" alt="" class="img-responsive">
+                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailbig1.jpg" alt="" class="img-responsive">
                             </div>
 
                             <div class="ribbon sale">
@@ -605,18 +606,18 @@
 
                             <div class="row" id="thumbs">
                                 <div class="col-xs-4">
-                                    <a href="img/detailbig1.jpg" class="thumb">
-                                        <img src="img/detailsquare.jpg" alt="" class="img-responsive">
+                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailbig1.jpg" class="thumb">
+                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailsquare.jpg" alt="" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="img/detailbig2.jpg" class="thumb">
-                                        <img src="img/detailsquare2.jpg" alt="" class="img-responsive">
+                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailbig2.jpg" class="thumb">
+                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailsquare2.jpg" alt="" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="img/detailbig3.jpg" class="thumb">
-                                        <img src="img/detailsquare3.jpg" alt="" class="img-responsive">
+                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailbig3.jpg" class="thumb">
+                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailsquare3.jpg" alt="" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
@@ -670,18 +671,18 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <a href="detail.html">
-                                                <img src="img/product2.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
                                             <a href="detail.html">
-                                                <img src="img/product2_2.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2_2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="detail.html" class="invisible">
-                                    <img src="img/product2.jpg" alt="" class="img-responsive">
+                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2.jpg" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
                                     <h3>Fur coat</h3>
@@ -697,18 +698,18 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <a href="detail.html">
-                                                <img src="img/product1.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
                                             <a href="detail.html">
-                                                <img src="img/product1_2.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1_2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="detail.html" class="invisible">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive">
+                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1.jpg" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
                                     <h3>Fur coat</h3>
@@ -725,18 +726,18 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <a href="detail.html">
-                                                <img src="img/product3.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
                                             <a href="detail.html">
-                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3_2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="detail.html" class="invisible">
-                                    <img src="img/product3.jpg" alt="" class="img-responsive">
+                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3.jpg" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
                                     <h3>Fur coat</h3>
@@ -763,18 +764,18 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <a href="detail.html">
-                                                <img src="img/product2.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
                                             <a href="detail.html">
-                                                <img src="img/product2_2.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2_2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="detail.html" class="invisible">
-                                    <img src="img/product2.jpg" alt="" class="img-responsive">
+                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2.jpg" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
                                     <h3>Fur coat</h3>
@@ -790,18 +791,18 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <a href="detail.html">
-                                                <img src="img/product1.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
                                             <a href="detail.html">
-                                                <img src="img/product1_2.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1_2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="detail.html" class="invisible">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive">
+                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1.jpg" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
                                     <h3>Fur coat</h3>
@@ -818,18 +819,18 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <a href="detail.html">
-                                                <img src="img/product3.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
                                             <a href="detail.html">
-                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3_2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="detail.html" class="invisible">
-                                    <img src="img/product3.jpg" alt="" class="img-responsive">
+                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3.jpg" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
                                     <h3>Fur coat</h3>
@@ -1016,14 +1017,14 @@
 
     <!-- *** SCRIPTS TO INCLUDE ***
  _________________________________________________________ -->
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.cookie.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/modernizr.js"></script>
-    <script src="js/bootstrap-hover-dropdown.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/front.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/jquery-1.11.0.min.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/bootstrap.min.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/jquery.cookie.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/waypoints.min.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/modernizr.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/bootstrap-hover-dropdown.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/owl.carousel.min.js"></script>
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/front.js"></script>
 
 
 

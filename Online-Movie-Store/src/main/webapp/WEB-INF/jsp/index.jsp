@@ -517,26 +517,26 @@ _________________________________________________________ -->
                                 <div class="flip-container">
                                     <div class="flipper">
                                         <div class="front">
-                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail.jsp?id=${movie.id}">
+                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">
                                                 <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
                                                      alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
-                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail.jsp?id=${movie.id}">
+                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">
                                                 <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
                                                      alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="<%=AppContext.getBaseUrl()%>/movie/detail.jsp?id=${movie.id}" class="invisible">
+                                <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}" class="invisible">
                                     <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
                                          alt="" class="img-responsive">
                                 </a>
 
                                 <div class="text">
-                                    <h3><a href="<%=AppContext.getBaseUrl()%>/movie/detail.jsp?id=${movie.id}">Fur coat with very but very very long name</a></h3>
+                                    <h3><a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">Fur coat with very but very very long name</a></h3>
 
                                     <p class="price">$${movie.price}</p>
                                 </div>
