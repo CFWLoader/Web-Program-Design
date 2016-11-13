@@ -30,16 +30,4 @@ public class HomePageController {
 
         return "index";
     }
-
-    @RequestMapping("/test")
-    String productsPage(Map<String, Object> models)
-    {
-        User user = new User();
-
-        user.setId("1"); user.setPassword("1123"); user.setAddress("1233"); user.setUsername("setg"); user.setPhoneNumber("12");
-
-        models.put("tUser", user);
-
-        return "test";
-    }
 }

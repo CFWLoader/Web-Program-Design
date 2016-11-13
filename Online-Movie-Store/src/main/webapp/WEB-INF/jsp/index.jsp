@@ -57,7 +57,7 @@ _________________________________________________________ -->
             <ul class="menu">
                 <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                 </li>
-                <li><a href="register.html">Register</a>
+                <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Register</a>
                 </li>
                 <li><a href="contact.html">Contact</a>
                 </li>
@@ -75,12 +75,12 @@ _________________________________________________________ -->
                     <h4 class="modal-title" id="Login">Customer login</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="customer-orders.html" method="post">
+                    <form action="<%=AppContext.getBaseUrl()%>/user/login" method="post"> <!--customer-orders.html-->
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email-modal" placeholder="email">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password-modal" placeholder="password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="password">
                         </div>
 
                         <p class="text-center">
@@ -91,7 +91,7 @@ _________________________________________________________ -->
 
                     <p class="text-center text-muted">Not registered yet?</p>
 
-                    <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is
+                    <p class="text-center text-muted"><a href="<%=AppContext.getBaseUrl()%>/user/registerPage"><strong>Register now</strong></a>! It is
                         easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
 
                 </div>
@@ -320,7 +320,7 @@ _________________________________________________________ -->
                                     <div class="col-sm-3">
                                         <h5>User</h5>
                                         <ul>
-                                            <li><a href="register.html">Register / login</a>
+                                            <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Register / login</a>
                                             </li>
                                             <li><a href="customer-orders.html">Orders history</a>
                                             </li>
@@ -683,7 +683,7 @@ _________________________________________________________ -->
                     <ul>
                         <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                         </li>
-                        <li><a href="register.html">Regiter</a>
+                        <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Regiter</a>
                         </li>
                     </ul>
 

@@ -10,4 +10,6 @@ public interface UserService {
     boolean addNewUser(User user);
 
     boolean checkUsernameExistence(String username);
+
+    User login(String username, String password);
 }

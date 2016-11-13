@@ -7,6 +7,7 @@ import team.cfw.oms.base.entity.User;
 import team.cfw.oms.base.service.UserService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,12 +21,12 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @RequestMapping("registerPage")
+    @RequestMapping("/registerPage")
     public String registerPage() {
         return "user/registerPage";
     }
 
-    @RequestMapping("doRegister")
+    @RequestMapping("/doRegister")
     public String doRegister(String username, String password1, String phoneNumber, String address) {
         User user = new User();
 
@@ -62,5 +63,18 @@ public class UserController {
         // System.out.println(hashMap.get("result"));
 
         return hashMap;
+    }
+
+    @RequestMapping("/login")
+    public String doLogin(String username, String password, HttpSession session)
+    {
+        User user = userService.login(username, password);
+
+        if(user != null)
+        {
+            session.setAttribute("user", user);
+        }
+
+        return "index";
     }
 }
