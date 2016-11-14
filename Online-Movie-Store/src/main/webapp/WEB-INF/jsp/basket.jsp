@@ -44,7 +44,6 @@
 </head>
 
 <body>
-
 <!-- *** TOPBAR ***
 _________________________________________________________ -->
 <div id="top">
@@ -75,12 +74,12 @@ _________________________________________________________ -->
                     <h4 class="modal-title" id="Login">Customer login</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="<%=AppContext.getBaseUrl()%>/user/login" method="post"> <!--customer-orders.html-->
+                    <form action="customer-orders.html" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="email">
+                            <input type="text" class="form-control" id="email-modal" placeholder="email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                            <input type="password" class="form-control" id="password-modal" placeholder="password">
                         </div>
 
                         <p class="text-center">
@@ -91,8 +90,9 @@ _________________________________________________________ -->
 
                     <p class="text-center text-muted">Not registered yet?</p>
 
-                    <p class="text-center text-muted"><a href="<%=AppContext.getBaseUrl()%>/user/registerPage"><strong>Register now</strong></a>! It is
-                        easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+                    <p class="text-center text-muted"><a href="<%=AppContext.getBaseUrl()%>/user/registerPage"><strong>Register
+                        now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts
+                        and much more!</p>
 
                 </div>
             </div>
@@ -305,7 +305,7 @@ _________________________________________________________ -->
                                     <div class="col-sm-3">
                                         <h5>Shop</h5>
                                         <ul>
-                                            <li><a href="index.html">Homepage</a>
+                                            <li><a href="<%=AppContext.getBaseUrl()%>/index">Homepage</a>
                                             </li>
                                             <li><a href="category.html">Category - sidebar left</a>
                                             </li>
@@ -320,7 +320,8 @@ _________________________________________________________ -->
                                     <div class="col-sm-3">
                                         <h5>User</h5>
                                         <ul>
-                                            <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Register / login</a>
+                                            <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Register /
+                                                login</a>
                                             </li>
                                             <li><a href="customer-orders.html">Orders history</a>
                                             </li>
@@ -380,8 +381,8 @@ _________________________________________________________ -->
         <div class="navbar-buttons">
 
             <div class="navbar-collapse collapse right" id="basket-overview">
-                <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span
-                        class="hidden-sm">${itemCount} items in cart</span></a>
+                <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-primary navbar-btn"><i
+                        class="fa fa-shopping-cart"></i><span class="hidden-sm">${itemCount} items in cart</span></a>
             </div>
             <!--/.nav-collapse -->
 
@@ -417,243 +418,264 @@ _________________________________________________________ -->
 
 <!-- *** NAVBAR END *** -->
 
-
 <div id="all">
 
     <div id="content">
-
         <div class="container">
+
             <div class="col-md-12">
-                <div id="main-slider">
-                    <div class="item">
-                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/main-slider1.jpg" alt=""
-                             class="img-responsive">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive"
-                             src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/main-slider2.jpg" alt="">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive"
-                             src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/main-slider3.jpg" alt="">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive"
-                             src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/main-slider4.jpg" alt="">
-                    </div>
-                </div>
-                <!-- /#main-slider -->
-            </div>
-        </div>
-
-        <!-- *** ADVANTAGES HOMEPAGE ***
-_________________________________________________________ -->
-        <div id="advantages">
-
-            <div class="container">
-                <div class="same-height-row">
-                    <div class="col-sm-4">
-                        <div class="box same-height clickable">
-                            <div class="icon"><i class="fa fa-heart"></i>
-                            </div>
-
-                            <h3><a href="#">We love our customers</a></h3>
-
-                            <p>We are known to provide best possible service ever</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="box same-height clickable">
-                            <div class="icon"><i class="fa fa-tags"></i>
-                            </div>
-
-                            <h3><a href="#">Best prices</a></h3>
-
-                            <p>You can check that the height of the boxes adjust when longer text like this one is used
-                                in one of them.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="box same-height clickable">
-                            <div class="icon"><i class="fa fa-thumbs-up"></i>
-                            </div>
-
-                            <h3><a href="#">100% satisfaction guaranteed</a></h3>
-
-                            <p>Free returns on everything for 3 months.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-            </div>
-            <!-- /.container -->
-
-        </div>
-        <!-- /#advantages -->
-
-        <!-- *** ADVANTAGES END *** -->
-
-        <!-- *** HOT PRODUCT SLIDESHOW ***
-_________________________________________________________ -->
-        <div id="hot">
-
-            <div class="box">
-                <div class="container">
-                    <div class="col-md-12">
-                        <h2>Hot this week</h2>
-                    </div>
-                </div>
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a>
+                    </li>
+                    <li>Shopping cart</li>
+                </ul>
             </div>
 
-            <div class="container">
-                <div class="product-slider">
+            <div class="col-md-9" id="basket">
 
-                    <c:forEach items="${movieColumn}" var="movie">
-                        <div class="item">
-                            <div class="product">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">
-                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
-                                                     alt="" class="img-responsive">
+                <div class="box">
+
+                    <form method="post" action="checkout1.html">
+
+                        <h1>Shopping cart</h1>
+
+                        <p class="text-muted">You currently have 3 item(s) in your cart.</p>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th colspan="2">Product</th>
+                                    <th>Quantity</th>
+                                    <th>Unit price</th>
+                                    <th>Discount</th>
+                                    <th colspan="2">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${itemList}" var="item">
+                                    <tr>
+                                        <td>
+                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${item.key}">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailsquare.jpg"
+                                                     alt="White Blouse Armani">
                                             </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">
-                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
-                                                     alt="" class="img-responsive">
-                                            </a>
-                                        </div>
+                                        </td>
+                                        <td><a href="#">White Blouse Armani</a>
+                                        </td>
+                                        <td>
+                                            <input type="number" value="2" class="form-control">
+                                        </td>
+                                        <td>$123.00</td>
+                                        <td>$0.00</td>
+                                        <td>$246.00</td>
+                                        <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th colspan="5">Total</th>
+                                    <th colspan="2">$446.00</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                        <!-- /.table-responsive -->
+
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i>
+                                    Continue shopping</a>
+                            </div>
+                            <div class="pull-right">
+                                <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
+                                <button type="submit" class="btn btn-primary">Proceed to checkout <i
+                                        class="fa fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <!-- /.box -->
+
+
+                <div class="row same-height-row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box same-height">
+                            <h3>You may also like these products</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="detail.html">
+                                            <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2.jpg"
+                                                 alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="detail.html">
+                                            <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2_2.jpg"
+                                                 alt="" class="img-responsive">
+                                        </a>
                                     </div>
                                 </div>
-                                <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}" class="invisible">
-                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
-                                         alt="" class="img-responsive">
-                                </a>
-
-                                <div class="text">
-                                    <h3><a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">Fur coat with very but very very long name</a></h3>
-
-                                    <p class="price">$${movie.price}</p>
-                                </div>
-                                <!-- /.text -->
                             </div>
-                            <!-- /.product -->
-                        </div>
-                    </c:forEach>
-
-
-                </div>
-                <!-- /.product-slider -->
-            </div>
-            <!-- /.container -->
-
-        </div>
-        <!-- /#hot -->
-
-        <!-- *** HOT END *** -->
-
-        <!-- *** GET INSPIRED ***
-_________________________________________________________ -->
-        <div class="container" data-animate="fadeInUpBig">
-            <div class="col-md-12">
-                <div class="box slideshow">
-                    <h3>Get Inspired</h3>
-
-                    <p class="lead">Get the inspiration from our recommendations</p>
-
-                    <div id="get-inspired" class="owl-carousel owl-theme">
-                        <div class="item">
-                            <a href="#">
-                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/getinspired1.jpg"
-                                     alt="Get inspired" class="img-responsive">
+                            <a href="detail.html" class="invisible">
+                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product2.jpg" alt=""
+                                     class="img-responsive">
                             </a>
+
+                            <div class="text">
+                                <h3>Fur coat</h3>
+
+                                <p class="price">$143</p>
+                            </div>
                         </div>
-                        <div class="item">
-                            <a href="#">
-                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/getinspired2.jpg"
-                                     alt="Get inspired" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="#">
-                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/getinspired3.jpg"
-                                     alt="Get inspired" class="img-responsive">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- *** GET INSPIRED END *** -->
-
-        <!-- *** BLOG HOMEPAGE ***
-_________________________________________________________ -->
-
-        <div class="box text-center" data-animate="fadeInUp">
-            <div class="container">
-                <div class="col-md-12">
-                    <h3 class="text-uppercase">From our blog</h3>
-
-                    <p class="lead">What's new in the world of fashion? <a href="blog.html">Check our blog!</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-
-            <div class="col-md-12" data-animate="fadeInUp">
-
-                <div id="blog-homepage" class="row">
-                    <div class="col-sm-6">
-                        <div class="post">
-                            <h4><a href="post.html">Fashion now</a></h4>
-
-                            <p class="author-category">By <a href="#">John Slim</a> in <a href="">Fashion and style</a>
-                            </p>
-                            <hr>
-                            <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                                ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit
-                                amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                                ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-
-                            <p class="read-more"><a href="post.html" class="btn btn-primary">Continue reading</a>
-                            </p>
-                        </div>
+                        <!-- /.product -->
                     </div>
 
-                    <div class="col-sm-6">
-                        <div class="post">
-                            <h4><a href="post.html">Who is who - example blog post</a></h4>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="detail.html">
+                                            <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1.jpg"
+                                                 alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="detail.html">
+                                            <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1_2.jpg"
+                                                 alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="detail.html" class="invisible">
+                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product1.jpg" alt=""
+                                     class="img-responsive">
+                            </a>
 
-                            <p class="author-category">By <a href="#">John Slim</a> in <a href="">About Minimal</a>
-                            </p>
-                            <hr>
-                            <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                                ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit
-                                amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                                ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                            <div class="text">
+                                <h3>Fur coat</h3>
 
-                            <p class="read-more"><a href="post.html" class="btn btn-primary">Continue reading</a>
-                            </p>
+                                <p class="price">$143</p>
+                            </div>
                         </div>
+                        <!-- /.product -->
+                    </div>
 
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="detail.html">
+                                            <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3.jpg"
+                                                 alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="detail.html">
+                                            <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3_2.jpg"
+                                                 alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="detail.html" class="invisible">
+                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/product3.jpg" alt=""
+                                     class="img-responsive">
+                            </a>
+
+                            <div class="text">
+                                <h3>Fur coat</h3>
+
+                                <p class="price">$143</p>
+
+                            </div>
+                        </div>
+                        <!-- /.product -->
                     </div>
 
                 </div>
-                <!-- /#blog-homepage -->
+
+
             </div>
+            <!-- /.col-md-9 -->
+
+            <div class="col-md-3">
+                <div class="box" id="order-summary">
+                    <div class="box-header">
+                        <h3>Order summary</h3>
+                    </div>
+                    <p class="text-muted">Shipping and additional costs are calculated based on the values you have
+                        entered.</p>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>Order subtotal</td>
+                                <th>$446.00</th>
+                            </tr>
+                            <tr>
+                                <td>Shipping and handling</td>
+                                <th>$10.00</th>
+                            </tr>
+                            <tr>
+                                <td>Tax</td>
+                                <th>$0.00</th>
+                            </tr>
+                            <tr class="total">
+                                <td>Total</td>
+                                <th>$456.00</th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+                <div class="box">
+                    <div class="box-header">
+                        <h4>Coupon code</h4>
+                    </div>
+                    <p class="text-muted">If you have a coupon code, please enter it in the box below.</p>
+
+                    <form>
+                        <div class="input-group">
+
+                            <input type="text" class="form-control">
+
+                                <span class="input-group-btn">
+
+					<button class="btn btn-primary" type="button"><i class="fa fa-gift"></i></button>
+
+				    </span>
+                        </div>
+                        <!-- /input-group -->
+                    </form>
+                </div>
+
+            </div>
+            <!-- /.col-md-3 -->
+
         </div>
         <!-- /.container -->
-
-        <!-- *** BLOG HOMEPAGE END *** -->
-
-
     </div>
     <!-- /#content -->
 

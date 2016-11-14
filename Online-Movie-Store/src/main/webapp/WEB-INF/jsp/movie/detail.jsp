@@ -1,4 +1,5 @@
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,14 +29,14 @@
     <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/owl.theme.css" rel="stylesheet">
 
     <!-- theme stylesheet -->
-    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
     <!-- your stylesheet with modifications -->
     <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/custom.css" rel="stylesheet">
 
     <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/respond.min.js"></script>
 
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="shortcut icon" href="<%=AppContext.getBaseUrl()%>/resource/images/favicon.png">
 
 
 
@@ -573,7 +574,7 @@
                     <div class="row" id="productMain">
                         <div class="col-sm-6">
                             <div id="mainImage">
-                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailbig1.jpg" alt="" class="img-responsive">
+                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}" alt="" class="img-responsive" style="height: 100%; width: 100%;">
                             </div>
 
                             <div class="ribbon sale">
@@ -594,7 +595,7 @@
                                 <h1 class="text-center">White Blouse Armani</h1>
                                 <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
                                 </p>
-                                <p class="price">$124.00</p>
+                                <p class="price">$${movie.price}</p>
 
                                 <p class="text-center buttons">
                                     <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a> 
@@ -606,18 +607,18 @@
 
                             <div class="row" id="thumbs">
                                 <div class="col-xs-4">
-                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailbig1.jpg" class="thumb">
-                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailsquare.jpg" alt="" class="img-responsive">
+                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}" class="thumb">
+                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}" alt="" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailbig2.jpg" class="thumb">
-                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailsquare2.jpg" alt="" class="img-responsive">
+                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}" class="thumb">
+                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}" alt="" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailbig3.jpg" class="thumb">
-                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailsquare3.jpg" alt="" class="img-responsive">
+                                    <a href="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}" class="thumb">
+                                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}" alt="" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
