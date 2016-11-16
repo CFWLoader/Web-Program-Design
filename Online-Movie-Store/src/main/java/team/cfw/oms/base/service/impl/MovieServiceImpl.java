@@ -22,7 +22,7 @@ public class MovieServiceImpl implements MovieService {
     public boolean addMovie(Movie movie) {
         String uuid = (String) movieDao.addEntity(movie);
 
-        if(uuid != movie.getId())
+        if(!uuid.equals(movie.getId()))
         {
             return false;
         }

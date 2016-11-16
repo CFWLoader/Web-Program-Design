@@ -439,8 +439,6 @@ _________________________________________________________ -->
 
                         <h1>Search result</h1>
 
-                        <p class="text-muted">You currently have 3 item(s) in your cart.</p>
-
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -451,36 +449,30 @@ _________________________________________________________ -->
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:set var="totalCost" value="${0.0}" />
-                                <c:forEach items="${itemList}" var="item">
+                                <c:forEach items="${searchedMovie}" var="movie">
                                     <tr>
                                         <td>
-                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${item.x}">
-                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${item.z.picAddress}"
-                                                     alt="${item.z.movieName}">
+                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
+                                                     alt="${movie.movieName}">
                                             </a>
                                         </td>
-                                        <td><a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${item.x}">${item.z.movieName}</a>
+                                        <td><a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">${movie.movieName}</a>
                                         </td>
-                                        <td>
-                                            <input type="number" value="${item.y}" class="form-control">
-                                        </td>
-                                        <td>$${item.z.price}</td>
+                                        <td>$${movie.price}</td>
                                         <td>$0.00</td>
-                                        <td>$${item.z.price * item.y}</td>
-                                        <c:set var="totalCost" value="${totalCost + item.z.price * item.y}" />
-                                        <td><a href="<%=AppContext.getBaseUrl()%>/basket?action=delete&targetId=${item.x}"><i class="fa fa-trash-o"></i></a>
+                                        <td><a href="#"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
                                 </c:forEach>
 
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th colspan="5">Total</th>
-                                    <th colspan="2">${totalCost}</th>
-                                </tr>
-                                </tfoot>
+                                <%--<tfoot>--%>
+                                <%--<tr>--%>
+                                    <%--<th colspan="5">Total</th>--%>
+                                    <%--<th colspan="2">0.0</th>--%>
+                                <%--</tr>--%>
+                                <%--</tfoot>--%>
                             </table>
 
                         </div>
@@ -491,12 +483,12 @@ _________________________________________________________ -->
                                 <a href="<%=AppContext.getBaseUrl()%>/index" class="btn btn-default"><i class="fa fa-chevron-left"></i>
                                     Continue shopping</a>
                             </div>
-                            <div class="pull-right">
-                                <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
-                                <button type="submit" class="btn btn-primary">Proceed to checkout <i
-                                        class="fa fa-chevron-right"></i>
-                                </button>
-                            </div>
+                            <%--<div class="pull-right">--%>
+                                <%--<button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>--%>
+                                <%--<button type="submit" class="btn btn-primary">Proceed to checkout <i--%>
+                                        <%--class="fa fa-chevron-right"></i>--%>
+                                <%--</button>--%>
+                            <%--</div>--%>
                         </div>
 
                     </form>

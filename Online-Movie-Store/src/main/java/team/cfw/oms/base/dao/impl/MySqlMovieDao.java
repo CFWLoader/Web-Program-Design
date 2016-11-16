@@ -24,8 +24,6 @@ public class MySqlMovieDao extends TemplateDaoImpl<Movie> implements MovieDao {
             return this.getEntities(0, 10);
         }
 
-        List<Movie> result = new LinkedList<Movie>();
-
         DetachedCriteria criteria = DetachedCriteria.forClass(clazz);
 
         Criterion criterion;
@@ -34,10 +32,10 @@ public class MySqlMovieDao extends TemplateDaoImpl<Movie> implements MovieDao {
 
         for(String keyword : keywords)
         {
-            criterion = Restrictions.or(criterion, Restrictions.like("movieName", keyword));
+            criterion = Restrictions.or(criterion, Restrictions.like("movieName", "%" + keyword + "%"));
         }
 
-        result = (List<Movie>) hibernateTemplate.findByCriteria(criteria.add(criterion));
+        List<Movie> result = (List<Movie>) hibernateTemplate.findByCriteria(criteria.add(criterion));
 
         return result;
     }

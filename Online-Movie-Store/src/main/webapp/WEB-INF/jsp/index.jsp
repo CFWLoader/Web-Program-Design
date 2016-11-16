@@ -398,7 +398,7 @@ _________________________________________________________ -->
 
             <form class="navbar-form" role="search" action="<%=AppContext.getBaseUrl()%>/searchPage" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Search" id="keyword" name="keyword">
                         <span class="input-group-btn">
 
 			<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>

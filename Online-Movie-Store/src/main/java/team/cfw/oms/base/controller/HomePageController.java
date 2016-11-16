@@ -119,9 +119,9 @@ public class HomePageController {
     }
 
     @RequestMapping(value = "/searchPage", method = RequestMethod.POST)
-    String searchPage(String keyword, Map<String, Object> models)
+    String searchPage(String keyword, Map<String, Object> models, HttpSession session)
     {
-        if(keyword != null)
+        if(keyword == null)
         {
             keyword = "";
         }
@@ -129,6 +129,8 @@ public class HomePageController {
         List<Movie> movieList = movieService.searchMovieByKeywords(keyword);
 
         models.put("searchedMovie", movieList);
+
+        models.put("itemCount", AppContext.getCart(session).getItemList().size());
 
         return "searchPage";
     }
