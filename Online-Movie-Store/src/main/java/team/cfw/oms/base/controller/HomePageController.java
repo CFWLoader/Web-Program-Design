@@ -3,15 +3,16 @@ package team.cfw.oms.base.controller;
 import javafx.util.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import team.cfw.oms.base.entity.Movie;
-import team.cfw.oms.base.entity.User;
 import team.cfw.oms.base.service.CacheDataManageService;
+import team.cfw.oms.base.service.MovieService;
 import team.cfw.oms.base.util.AppContext;
-import team.cfw.oms.business.entity.Cart;
+import team.cfw.oms.business.entity.trans.Cart;
+import team.cfw.oms.business.entity.trans.Triple;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,9 @@ public class HomePageController {
 
     @Resource
     private CacheDataManageService cacheDataManageService;
+
+    @Resource
+    private MovieService movieService;
 
     @RequestMapping("/index")
     String indexPage(Map<String, Object> models, HttpSession session)
@@ -39,7 +43,7 @@ public class HomePageController {
         return "index";
     }
 
-    @RequestMapping("/basket")
+    @RequestMapping(value = "/basket", method = RequestMethod.GET)
     String basketPage(String action, String targetId, Map<String, Object> models, HttpSession session)
     {
         if(action == null || action.trim().equals(""))
@@ -53,15 +57,19 @@ public class HomePageController {
         {
             Integer newValue = 1;
 
-            Pair<String, Integer> target = null;
+            Movie theMovie = null;
 
-            for(Pair<String, Integer> pair : cart.getItemList())
+            Triple<String, Integer, Movie> target = null;
+
+            for(Triple<String, Integer, Movie> triple : cart.getItemList())
             {
-                if(pair.getKey().equals(targetId))
+                if(triple.getX().equals(targetId))
                 {
-                    target = pair;
+                    target = triple;
 
-                    newValue = pair.getValue() + newValue;
+                    newValue = triple.getY() + newValue;
+
+                    theMovie = triple.getZ();
 
                     break;
                 }
@@ -69,22 +77,43 @@ public class HomePageController {
 
             if(target == null)
             {
-                cart.addItemToCart(targetId, newValue);
+                for(Movie movie : cacheDataManageService.getColumnByColumnName("movieColumn", Movie.class))
+                {
+                    if(movie.getId().equals(targetId))
+                    {
+                        theMovie = movie;
+
+                        break;
+                    }
+                }
+
+                cart.addItemToCart(targetId, newValue,
+                        theMovie == null ? movieService.getMovieByMovieId(targetId) : theMovie);
             }
             else
             {
                 cart.removeItemFromCart(targetId);
 
-                cart.addItemToCart(targetId, newValue);
+                cart.addItemToCart(targetId, newValue, theMovie);
             }
 
+        }
+        else if(action.equals("delete") && targetId != null && !targetId.trim().equals(""))
+        {
+            cart.removeItemFromCart(targetId);
         }
 
         models.put("itemList", cart.getItemList());
 
         models.put("itemCount", cart.getItemList().size());
 
-        return "basket";
+        if(action.equals("view"))
+        {
+            return "basket";
+        }
+        else {
+            return "redirect:" + AppContext.getBaseUrl() + "/basket?action=view";
+        }
     }
 
 }

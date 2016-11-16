@@ -453,23 +453,25 @@ _________________________________________________________ -->
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <c:set var="totalCost" value="${0.0}" />
                                 <c:forEach items="${itemList}" var="item">
                                     <tr>
                                         <td>
-                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${item.key}">
-                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/detailsquare.jpg"
-                                                     alt="White Blouse Armani">
+                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${item.x}">
+                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${item.z.picAddress}"
+                                                     alt="${item.z.movieName}">
                                             </a>
                                         </td>
-                                        <td><a href="#">White Blouse Armani</a>
+                                        <td><a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${item.x}">${item.z.movieName}</a>
                                         </td>
                                         <td>
-                                            <input type="number" value="2" class="form-control">
+                                            <input type="number" value="${item.y}" class="form-control">
                                         </td>
-                                        <td>$123.00</td>
+                                        <td>$${item.z.price}</td>
                                         <td>$0.00</td>
-                                        <td>$246.00</td>
-                                        <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                        <td>$${item.z.price * item.y}</td>
+                                        <c:set var="totalCost" value="${totalCost + item.z.price * item.y}" />
+                                        <td><a href="<%=AppContext.getBaseUrl()%>/basket?action=delete&targetId=${item.x}"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -478,7 +480,7 @@ _________________________________________________________ -->
                                 <tfoot>
                                 <tr>
                                     <th colspan="5">Total</th>
-                                    <th colspan="2">$446.00</th>
+                                    <th colspan="2">${totalCost}</th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -488,7 +490,7 @@ _________________________________________________________ -->
 
                         <div class="box-footer">
                             <div class="pull-left">
-                                <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i>
+                                <a href="<%=AppContext.getBaseUrl()%>/index" class="btn btn-default"><i class="fa fa-chevron-left"></i>
                                     Continue shopping</a>
                             </div>
                             <div class="pull-right">
@@ -504,7 +506,7 @@ _________________________________________________________ -->
                 </div>
                 <!-- /.box -->
 
-
+<%--
                 <div class="row same-height-row">
                     <div class="col-md-3 col-sm-6">
                         <div class="box same-height">
@@ -611,7 +613,7 @@ _________________________________________________________ -->
                     </div>
 
                 </div>
-
+--%>
 
             </div>
             <!-- /.col-md-9 -->
@@ -629,11 +631,11 @@ _________________________________________________________ -->
                             <tbody>
                             <tr>
                                 <td>Order subtotal</td>
-                                <th>$446.00</th>
+                                <th>$${totalCost}</th>
                             </tr>
                             <tr>
                                 <td>Shipping and handling</td>
-                                <th>$10.00</th>
+                                <th>$0.00</th>
                             </tr>
                             <tr>
                                 <td>Tax</td>
@@ -641,7 +643,7 @@ _________________________________________________________ -->
                             </tr>
                             <tr class="total">
                                 <td>Total</td>
-                                <th>$456.00</th>
+                                <th>$${totalCost}</th>
                             </tr>
                             </tbody>
                         </table>

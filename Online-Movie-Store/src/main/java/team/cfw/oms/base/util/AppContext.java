@@ -1,6 +1,6 @@
 package team.cfw.oms.base.util;
 
-import team.cfw.oms.business.entity.Cart;
+import team.cfw.oms.business.entity.trans.Cart;
 
 import javax.servlet.http.HttpSession;
 

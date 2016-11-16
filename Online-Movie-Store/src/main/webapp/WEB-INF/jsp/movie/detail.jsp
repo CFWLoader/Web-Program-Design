@@ -598,7 +598,7 @@
                                 <p class="price">$${movie.price}</p>
 
                                 <p class="text-center buttons">
-                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a> 
+                                    <a href="<%=AppContext.getBaseUrl()%>/basket?action=add&targetId=${movie.id}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     <a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
                                 </p>
 
