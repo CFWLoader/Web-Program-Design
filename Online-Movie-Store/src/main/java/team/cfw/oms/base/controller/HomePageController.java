@@ -13,6 +13,8 @@ import team.cfw.oms.business.entity.trans.Triple;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -116,4 +118,18 @@ public class HomePageController {
         }
     }
 
+    @RequestMapping(value = "/searchPage", method = RequestMethod.POST)
+    String searchPage(String keyword, Map<String, Object> models)
+    {
+        if(keyword != null)
+        {
+            keyword = "";
+        }
+
+        List<Movie> movieList = movieService.searchMovieByKeywords(keyword);
+
+        models.put("searchedMovie", movieList);
+
+        return "searchPage";
+    }
 }

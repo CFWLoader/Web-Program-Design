@@ -37,4 +37,11 @@ public class MovieServiceImpl implements MovieService {
     public Movie getMovieByMovieId(String movieId) {
         return movieDao.getEntityById(movieId);
     }
+
+    public List<Movie> searchMovieByKeywords(String keyword) {
+
+        String[] keywords = keyword.split(" ");
+
+        return movieDao.searchMovieByKeywords(keywords);
+    }
 }

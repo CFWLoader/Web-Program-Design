@@ -14,4 +14,6 @@ public interface MovieService {
     List<Movie> getAllMovies();
 
     Movie getMovieByMovieId(String movieId);
+
+    List<Movie> searchMovieByKeywords(String keyword);
 }
