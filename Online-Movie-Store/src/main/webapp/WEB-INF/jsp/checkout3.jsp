@@ -119,7 +119,7 @@
                         <i class="fa fa-search"></i>
                     </button>
                     <a class="btn btn-default navbar-toggle" href="<%=AppContext.getBaseUrl()%>/basket?action=view">
-                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">${itemCount} items in cart</span>
+                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
                     </a>
                 </div>
             </div>
@@ -410,110 +410,82 @@
 
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="<%=AppContext.getBaseUrl()%>/index">Home</a>
+                        <li><a href="#">Home</a>
                         </li>
-                        <li>Checkout - Address</li>
+                        <li>Checkout - Payment method</li>
                     </ul>
                 </div>
 
                 <div class="col-md-9" id="checkout">
 
                     <div class="box">
-                        <form method="post" action="<%=AppContext.getBaseUrl()%>/checkout2">
-                            <h1>Checkout</h1>
+                        <form method="post" action="<%=AppContext.getBaseUrl()%>/checkout4">
+                            <h1>Checkout - Payment method</h1>
                             <ul class="nav nav-pills nav-justified">
-                                <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
+                                <li><a href="<%=AppContext.getBaseUrl()%>/checkout1"><i class="fa fa-map-marker"></i><br>Address</a>
                                 </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                                <li><a href="<%=AppContext.getBaseUrl()%>/checkout2"><i class="fa fa-truck"></i><br>Delivery Method</a>
                                 </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
+                                <li class="active"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
                                 </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+                                <li class="disabled"><a href="<%=AppContext.getBaseUrl()%>/checkout4"><i class="fa fa-eye"></i><br>Order Review</a>
                                 </li>
                             </ul>
 
                             <div class="content">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="firstname">Firstname</label>
-                                            <input type="text" class="form-control" id="firstname" name="firstname">
+                                        <div class="box payment-method">
+
+                                            <h4>Paypal</h4>
+
+                                            <p>We like it all.</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="payment" value="payment1">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="lastname">Lastname</label>
-                                            <input type="text" class="form-control" id="lastname" name="lastname">
+                                        <div class="box payment-method">
+
+                                            <h4>Payment gateway</h4>
+
+                                            <p>VISA and Mastercard only.</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="payment" value="payment2">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="box payment-method">
+
+                                            <h4>Cash on delivery</h4>
+
+                                            <p>You pay when you get it.</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="payment" value="payment3">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- /.row -->
 
-                                <div class="row">
-                                    <%--<div class="col-sm-6">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="company">Company</label>--%>
-                                            <%--<input type="text" class="form-control" id="company">--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="address">Address</label>
-                                            <input type="text" class="form-control" id="address" name="address" value="${address}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-
-                                <div class="row">
-                                    <%--<div class="col-sm-6 col-md-3">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="city">Company</label>--%>
-                                            <%--<input type="text" class="form-control" id="city">--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-6 col-md-3">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="zip">ZIP</label>--%>
-                                            <%--<input type="text" class="form-control" id="zip">--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-6 col-md-3">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="state">State</label>--%>
-                                            <%--<select class="form-control" id="state"></select>--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-6 col-md-3">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="country">Country</label>--%>
-                                            <%--<select class="form-control" id="country"></select>--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="phoneNumber">Telephone</label>
-                                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" class="form-control" id="email" name="email">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- /.row -->
                             </div>
+                            <!-- /.content -->
 
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
+                                    <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to Shipping method</a>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                                    <button type="submit" class="btn btn-primary">Continue to Order review<i class="fa fa-chevron-right"></i>
                                     </button>
                                 </div>
                             </div>
@@ -565,6 +537,7 @@
             <!-- /.container -->
         </div>
         <!-- /#content -->
+
 
         <!-- *** FOOTER ***
  _________________________________________________________ -->

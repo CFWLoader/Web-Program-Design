@@ -146,6 +146,8 @@ public class HomePageController {
 
         models.put("address", user == null ? "" : user.getAddress());
 
+        models.put("itemCount", AppContext.getCart(session).getItemList().size());
+
         return "checkout1";
     }
 
@@ -172,7 +174,54 @@ public class HomePageController {
 
         session.setAttribute("order", order);
 
+        double totalCost = 0.0;
+
+        for(Triple<String, Integer, Movie> element : AppContext.getCart(session).getItemList())
+        {
+            totalCost += element.getY() * element.getZ().getPrice();
+        }
+
+        models.put("totalCost", totalCost);
+
+        models.put("itemCount", AppContext.getCart(session).getItemList().size());
+
         return "checkout2";
+    }
+
+    @RequestMapping(value = "/checkout3", method = RequestMethod.POST)
+    public String checkout3Page(Map<String, Object> models, HttpSession session)
+    {
+        double totalCost = 0.0;
+
+        for(Triple<String, Integer, Movie> element : AppContext.getCart(session).getItemList())
+        {
+            totalCost += element.getY() * element.getZ().getPrice();
+        }
+
+        models.put("totalCost", totalCost);
+
+        models.put("itemCount", AppContext.getCart(session).getItemList().size());
+
+        return "checkout3";
+    }
+
+    @RequestMapping(value = "/checkout4", method = RequestMethod.POST)
+    public String checkout4Page(Map<String, Object> models, HttpSession session)
+    {
+        double totalCost = 0.0;
+
+        for(Triple<String, Integer, Movie> element : AppContext.getCart(session).getItemList())
+        {
+            totalCost += element.getY() * element.getZ().getPrice();
+        }
+
+        models.put("totalCost", totalCost);
+
+        models.put("itemCount", AppContext.getCart(session).getItemList().size());
+
+        models.put("itemList", AppContext.getCart(session));
+
+        return "checkout4";
     }
 
     private String validateTheFormParameters(String firstname, String lastname, String address, String phoneNumber, String email) {

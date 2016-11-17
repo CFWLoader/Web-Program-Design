@@ -324,7 +324,7 @@
                                             <ul>
                                                 <li><a href="<%=AppContext.getBaseUrl()%>/basket?action=view">Shopping cart</a>
                                                 </li>
-                                                <li><a href="<%=AppContext.getBaseUrl()%>/checkout1">Checkout - step 1</a>
+                                                <li><a href="checkout1.html">Checkout - step 1</a>
                                                 </li>
                                                 <li><a href="checkout2.html">Checkout - step 2</a>
                                                 </li>
@@ -382,7 +382,7 @@
 
             <div class="collapse clearfix" id="search">
 
-                <form class="navbar-form" role="search">
+                <form class="navbar-form" role="search" action="<%=AppContext.getBaseUrl()%>/searchPage">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" id="keyword" name="keyword">
                         <span class="input-group-btn">
@@ -410,21 +410,21 @@
 
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="<%=AppContext.getBaseUrl()%>/index">Home</a>
+                        <li><a href="#">Home</a>
                         </li>
-                        <li>Checkout - Address</li>
+                        <li>Checkout - Delivery method</li>
                     </ul>
                 </div>
 
                 <div class="col-md-9" id="checkout">
 
                     <div class="box">
-                        <form method="post" action="<%=AppContext.getBaseUrl()%>/checkout2">
-                            <h1>Checkout</h1>
+                        <form method="post" action="<%=AppContext.getBaseUrl()%>/checkout3">
+                            <h1>Checkout - Delivery method</h1>
                             <ul class="nav nav-pills nav-justified">
-                                <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
+                                <li><a href="<%=AppContext.getBaseUrl()%>/checkout1"><i class="fa fa-map-marker"></i><br>Address</a>
                                 </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                                <li class="active"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
                                 </li>
                                 <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
                                 </li>
@@ -435,85 +435,57 @@
                             <div class="content">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="firstname">Firstname</label>
-                                            <input type="text" class="form-control" id="firstname" name="firstname">
+                                        <div class="box shipping-method">
+
+                                            <h4>USPS Next Day</h4>
+
+                                            <p>Get it right on next day - fastest option possible.</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="delivery" value="delivery1">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="lastname">Lastname</label>
-                                            <input type="text" class="form-control" id="lastname" name="lastname">
+                                        <div class="box shipping-method">
+
+                                            <h4>USPS Next Day</h4>
+
+                                            <p>Get it right on next day - fastest option possible.</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="delivery" value="delivery2">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="box shipping-method">
+
+                                            <h4>USPS Next Day</h4>
+
+                                            <p>Get it right on next day - fastest option possible.</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="delivery" value="delivery3">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- /.row -->
 
-                                <div class="row">
-                                    <%--<div class="col-sm-6">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="company">Company</label>--%>
-                                            <%--<input type="text" class="form-control" id="company">--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="address">Address</label>
-                                            <input type="text" class="form-control" id="address" name="address" value="${address}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-
-                                <div class="row">
-                                    <%--<div class="col-sm-6 col-md-3">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="city">Company</label>--%>
-                                            <%--<input type="text" class="form-control" id="city">--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-6 col-md-3">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="zip">ZIP</label>--%>
-                                            <%--<input type="text" class="form-control" id="zip">--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-6 col-md-3">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="state">State</label>--%>
-                                            <%--<select class="form-control" id="state"></select>--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-6 col-md-3">--%>
-                                        <%--<div class="form-group">--%>
-                                            <%--<label for="country">Country</label>--%>
-                                            <%--<select class="form-control" id="country"></select>--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="phoneNumber">Telephone</label>
-                                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" class="form-control" id="email" name="email">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- /.row -->
                             </div>
+                            <!-- /.content -->
 
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
+                                    <a href="<%=AppContext.getBaseUrl()%>/basket" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to Addresses</a>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                                    <button type="submit" class="btn btn-primary">Continue to Payment Method<i class="fa fa-chevron-right"></i>
                                     </button>
                                 </div>
                             </div>
