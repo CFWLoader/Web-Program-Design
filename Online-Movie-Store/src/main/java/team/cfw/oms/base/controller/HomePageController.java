@@ -219,7 +219,7 @@ public class HomePageController {
 
         models.put("itemCount", AppContext.getCart(session).getItemList().size());
 
-        models.put("itemList", AppContext.getCart(session));
+        models.put("itemList", AppContext.getCart(session).getItemList());
 
         return "checkout4";
     }

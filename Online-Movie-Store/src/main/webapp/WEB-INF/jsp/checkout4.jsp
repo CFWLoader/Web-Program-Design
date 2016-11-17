@@ -383,7 +383,7 @@ _________________________________________________________ -->
 
             <div class="navbar-collapse collapse right" id="basket-overview">
                 <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-primary navbar-btn"><i
-                        class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items in cart</span></a>
+                        class="fa fa-shopping-cart"></i><span class="hidden-sm">${itemCount} items in cart</span></a>
             </div>
             <!--/.nav-collapse -->
 
@@ -484,7 +484,7 @@ _________________________________________________________ -->
                                     <tfoot>
                                     <tr>
                                         <th colspan="5">Total</th>
-                                        <th>$${totalCount}</th>
+                                        <th>$${totalCost}</th>
                                     </tr>
                                     </tfoot>
                                 </table>
