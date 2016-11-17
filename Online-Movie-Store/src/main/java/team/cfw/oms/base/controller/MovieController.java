@@ -24,7 +24,7 @@ public class MovieController {
     private CacheDataManageService cacheDataManageService;
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    String movieDetailPage(String id, Map<String, Object> models)
+    public String movieDetailPage(String id, Map<String, Object> models)
     {
         Movie movie = movieService.getMovieByMovieId(id);
 

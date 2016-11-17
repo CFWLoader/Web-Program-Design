@@ -26,11 +26,15 @@ public class Order {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Movie> movies;
 
-    private String receiverName;
+    private String receiverFirstName;
+
+    private String receiverLastName;
 
     private String receiverAddress;
 
     private String receiverPhoneNumber;
+
+    private String receiverEmail;
 
     private Date orderedDate;
 
@@ -58,12 +62,20 @@ public class Order {
         this.movies = movies;
     }
 
-    public String getReceiverName() {
-        return receiverName;
+    public String getReceiverFirstName() {
+        return receiverFirstName;
     }
 
-    public void setReceiverName(String receiverName) {
-        this.receiverName = receiverName;
+    public void setReceiverFirstName(String receiverFirstName) {
+        this.receiverFirstName = receiverFirstName;
+    }
+
+    public String getReceiverLastName() {
+        return receiverLastName;
+    }
+
+    public void setReceiverLastName(String receiverLastName) {
+        this.receiverLastName = receiverLastName;
     }
 
     public String getReceiverAddress() {
@@ -80,6 +92,14 @@ public class Order {
 
     public void setReceiverPhoneNumber(String receiverPhoneNumber) {
         this.receiverPhoneNumber = receiverPhoneNumber;
+    }
+
+    public String getReceiverEmail() {
+        return receiverEmail;
+    }
+
+    public void setReceiverEmail(String receiverEmail) {
+        this.receiverEmail = receiverEmail;
     }
 
     public Date getOrderedDate() {

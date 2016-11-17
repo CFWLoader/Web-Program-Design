@@ -435,11 +435,11 @@ _________________________________________________________ -->
 
                 <div class="box">
 
-                    <form method="post" action="checkout1.html">
+                    <form method="post" action="<%=AppContext.getBaseUrl()%>/checkout1">
 
                         <h1>Shopping cart</h1>
 
-                        <p class="text-muted">You currently have 3 item(s) in your cart.</p>
+                        <p class="text-muted">You currently have ${itemCount} item(s) in your cart.</p>
 
                         <div class="table-responsive">
                             <table class="table">

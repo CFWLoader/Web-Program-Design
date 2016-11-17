@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import team.cfw.oms.base.entity.Movie;
+import team.cfw.oms.base.entity.User;
 import team.cfw.oms.base.service.CacheDataManageService;
 import team.cfw.oms.base.service.MovieService;
 import team.cfw.oms.base.util.AppContext;
+import team.cfw.oms.business.entity.Order;
 import team.cfw.oms.business.entity.trans.Cart;
 import team.cfw.oms.business.entity.trans.Triple;
 
@@ -32,7 +34,7 @@ public class HomePageController {
     private MovieService movieService;
 
     @RequestMapping("/index")
-    String indexPage(Map<String, Object> models, HttpSession session)
+    public String indexPage(Map<String, Object> models, HttpSession session)
     {
         List<Movie> movieList = cacheDataManageService.getColumnByColumnName("movieColumn", Movie.class);
 
@@ -46,7 +48,7 @@ public class HomePageController {
     }
 
     @RequestMapping(value = "/basket", method = RequestMethod.GET)
-    String basketPage(String action, String targetId, Map<String, Object> models, HttpSession session)
+    public String basketPage(String action, String targetId, Map<String, Object> models, HttpSession session)
     {
         if(action == null || action.trim().equals(""))
         {
@@ -119,7 +121,7 @@ public class HomePageController {
     }
 
     @RequestMapping(value = "/searchPage", method = RequestMethod.POST)
-    String searchPage(String keyword, Map<String, Object> models, HttpSession session)
+    public String searchPage(String keyword, Map<String, Object> models, HttpSession session)
     {
         if(keyword == null)
         {
@@ -134,4 +136,73 @@ public class HomePageController {
 
         return "searchPage";
     }
+
+    @RequestMapping(value = "/checkout1", method = RequestMethod.POST)
+    public String checkout1Page(Map<String, Object> models, HttpSession session)
+    {
+        User user = (User) session.getAttribute("user");
+
+        models.put("phoneNumber", user == null ? "" : user.getPhoneNumber());
+
+        models.put("address", user == null ? "" : user.getAddress());
+
+        return "checkout1";
+    }
+
+    @RequestMapping(value = "/checkout2", method = RequestMethod.POST)
+    public String checkout2Page(String firstname, String lastname, String address, String phoneNumber, String email,
+                         Map<String, Object> models, HttpSession session)
+    {
+        String result = this.validateTheFormParameters(firstname, lastname, address, phoneNumber, email);
+
+        if(!result.equals("OK"))
+        {
+            models.put("errorMessage", result);
+
+            return "errorPage";
+        }
+
+        Order order = new Order();
+
+        order.setReceiverFirstName(firstname);
+        order.setReceiverLastName(lastname);
+        order.setReceiverAddress(address);
+        order.setReceiverPhoneNumber(phoneNumber);
+        order.setReceiverEmail(email);
+
+        session.setAttribute("order", order);
+
+        return "checkout2";
+    }
+
+    private String validateTheFormParameters(String firstname, String lastname, String address, String phoneNumber, String email) {
+
+        if(firstname == null || firstname.trim().equals(""))
+        {
+            return "Invalid info: firstname.";
+        }
+
+        if(lastname == null || lastname.trim().equals(""))
+        {
+            return "Invalid info: lastname.";
+        }
+
+        if(address == null || address.trim().equals(""))
+        {
+            return "Invalid info: address.";
+        }
+
+        if(phoneNumber == null || phoneNumber.trim().equals(""))
+        {
+            return "Invalid info: phone number.";
+        }
+
+        if(email == null || email.trim().equals(""))
+        {
+            return "Invalid info: email.";
+        }
+
+        return "OK";
+    }
+
 }
