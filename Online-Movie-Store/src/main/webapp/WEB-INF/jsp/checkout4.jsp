@@ -435,7 +435,10 @@ _________________________________________________________ -->
             <div class="col-md-9" id="checkout">
 
                 <div class="box">
-                    <form method="post" action="<%=AppContext.getBaseUrl()%>/checkout4">
+                    <form method="post" action="<%=AppContext.getBaseUrl()%>/order/customer-orders">
+
+                        <input type="hidden" name="action" value="add" />
+
                         <h1>Checkout - Order review</h1>
                         <ul class="nav nav-pills nav-justified">
                             <li><a href="<%=AppContext.getBaseUrl()%>/checkout1"><i class="fa fa-map-marker"></i><br>Address</a>
