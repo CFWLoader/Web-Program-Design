@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import team.cfw.oms.base.entity.User;
 import team.cfw.oms.base.service.UserService;
+import team.cfw.oms.business.service.OrderService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -20,6 +21,9 @@ public class UserController {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private OrderService orderService;
 
     @RequestMapping("/registerPage")
     public String registerPage() {
@@ -66,15 +70,17 @@ public class UserController {
     }
 
     @RequestMapping("/login")
-    public String doLogin(String username, String password, HttpSession session)
+    public String doLogin(String username, String password, HttpSession session, Map<String, Object> models)
     {
         User user = userService.login(username, password);
 
         if(user != null)
         {
             session.setAttribute("user", user);
+
+            models.put("orderList", orderService.getOrdersByUser(user, 0, 10));
         }
 
-        return "index";
+        return "user/customer-orders";
     }
 }

@@ -6,6 +6,7 @@ import team.cfw.oms.base.entity.User;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,7 +24,7 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User user;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     private Set<Movie> movies;
 
     private String receiverFirstName;
@@ -36,7 +37,13 @@ public class Order {
 
     private String receiverEmail;
 
+    private double totalFee;
+
     private Date orderedDate;
+
+    public Order() {
+        movies = new HashSet<Movie>();
+    }
 
     public String getId() {
         return id;
@@ -100,6 +107,14 @@ public class Order {
 
     public void setReceiverEmail(String receiverEmail) {
         this.receiverEmail = receiverEmail;
+    }
+
+    public double getTotalFee() {
+        return totalFee;
+    }
+
+    public void setTotalFee(double totalFee) {
+        this.totalFee = totalFee;
     }
 
     public Date getOrderedDate() {
