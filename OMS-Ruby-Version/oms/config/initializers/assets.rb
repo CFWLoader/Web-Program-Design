@@ -9,3 +9,10 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( obaju-css/* )
+Rails.application.config.assets.precompile += %w( obaju-img/* )
+Rails.application.config.assets.precompile += %w( upload/* )
+Rails.application.config.assets.precompile += %w( obaju-js/* )
+Rails.application.config.assets.precompile += %w( bt3-js/* )
+Rails.application.config.assets.precompile += %w( bt3-css/* )
+Rails.application.config.assets.precompile += %w( bt3-fonts/* )

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap 3, from LayoutIt!</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <!-- <link href="/assets/stylesheets/bt3-css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="/assets/resource/stylesheets/bt3-css/style.css" rel="stylesheet"> -->
+
+    <%= stylesheet_link_tag 'bt3-css/bootstrap.min.css', media: 'all'%>
+    <%= stylesheet_link_tag 'bt3-css/style.css', media: 'all'%>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center">
+                Welcome! Administrator.
+            </h3>
+            <ul>
+                <li>
+                    <a href="<%= new_movie_path %>">Add a movie.</a>
+                </li>
+                <li>
+                    <a href="">Manage movie column.</a>
+                </li>
+                <li>
+                    <a href="">Show movie column.</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<%= javascript_include_tag 'bt3-js/jquery.min.js' %>
+<%= javascript_include_tag 'bt3-js/bootstrap.min.js' %>
+<%= javascript_include_tag 'bt3-js/scripts.js' %>
+</body>
+</html>
