@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Manage Movie Column Page</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <%= stylesheet_link_tag 'bt3-css/bootstrap.min.css', media: 'all'%>
+    <%= stylesheet_link_tag 'bt3-css/style.css', media: 'all'%>
+
+    <%= javascript_include_tag 'jquery-3.1.1.min.js' %>
+
+    <script type="text/javascript">
+        function addMovieToColumn(movieIdVal)
+        {
+            $.ajax({
+                type: "post",
+                url: "/admin/addMovieToMovieColumn",
+                data: {
+                    movieId: movieIdVal
+                },
+                dataType: "json",
+                success: function (data, status) {
+                    alert(data.result);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown){
+                    alert(XMLHttpRequest.status);
+
+                    alert(XMLHttpRequest.readyState);
+
+                    alert(textStatus);
+
+                    alert(errorThrown);
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Movie Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Add to column
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @movies.each do |movie| %>
+                    <tr>
+                        <td>
+                                <%= movie.id %>
+                        </td>
+                        <td>
+                                <%= movie.movieName %>
+                        </td>
+                        <td>
+                                <%= movie.price %>
+                        </td>
+                        <td>
+                            <input type="button" value="Add" onclick="addMovieToColumn('<%= movie.id %>')"/>
+                        </td>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <%= javascript_include_tag 'bt3-js/bootstrap.min.js' %>
+    <%= javascript_include_tag 'bt3-js/scripts.js' %>
+</body>
+</html>

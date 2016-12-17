@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  get 'movie/index'
-
-  #get 'user/index'
-
-  #get 'home/index'
-  get 'user/test_resource'
 
   root 'home#index'
 
-  resources :user
+  resources :users
 
-  resources :movie
+  resources :movies
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # Movies self-defined routes
+  get 'movies_/manage', to: 'movies#manage'
+
 end

@@ -16,3 +16,5 @@ Rails.application.config.assets.precompile += %w( obaju-js/* )
 Rails.application.config.assets.precompile += %w( bt3-js/* )
 Rails.application.config.assets.precompile += %w( bt3-css/* )
 Rails.application.config.assets.precompile += %w( bt3-fonts/* )
+
+Rails.application.config.assets.precompile += %w( *.js )

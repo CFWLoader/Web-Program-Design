@@ -20,22 +20,21 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 
     <!-- styles -->
-    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/font-awesome.css" rel="stylesheet">
-    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/animate.min.css" rel="stylesheet">
-    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/owl.carousel.css" rel="stylesheet">
-    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/owl.theme.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'obaju-css/font-awesome.css' %>
+    <%= stylesheet_link_tag 'obaju-css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'obaju-css/animate.min.css' %>
+    <%= stylesheet_link_tag 'obaju-css/owl.carousel.css' %>
+    <%= stylesheet_link_tag 'obaju-css/owl.theme.css' %>
 
     <!-- theme stylesheet -->
-    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/style.default.css" rel="stylesheet"
-          id="theme-stylesheet">
+    <%= stylesheet_link_tag 'obaju-css/style.default.css', id: "theme-stylesheet" %>
 
     <!-- your stylesheet with modifications -->
-    <link href="<%=AppContext.getBaseUrl()%>/resource/stylesheets/obaju-css/custom.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'obaju-css/custom.css' %>
 
-    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/respond.min.js"></script>
+    <%= javascript_include_tag 'obaju-js/respond.min.js' %>
 
-    <link rel="shortcut icon" href="<%=AppContext.getBaseUrl()%>/resource/images/favicon.png">
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
 
 
 </head>
@@ -54,7 +53,7 @@ _________________________________________________________ -->
             <ul class="menu">
                 <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                 </li>
-                <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Register</a>
+                <li><a href="<%= new_user_path %>">Register</a>
                 </li>
                 <li><a href="contact.html">Contact</a>
                 </li>
@@ -72,7 +71,7 @@ _________________________________________________________ -->
                     <h4 class="modal-title" id="Login">Customer login</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="<%=AppContext.getBaseUrl()%>/user/login" method="post"> <!--customer-orders.html-->
+                    <form action="" method="post"> <!--customer-orders.html-->
                         <div class="form-group">
                             <input type="text" class="form-control" id="username" name="username" placeholder="email">
                         </div>
@@ -88,7 +87,7 @@ _________________________________________________________ -->
 
                     <p class="text-center text-muted">Not registered yet?</p>
 
-                    <p class="text-center text-muted"><a href="<%=AppContext.getBaseUrl()%>/user/registerPage"><strong>Register now</strong></a>! It is
+                    <p class="text-center text-muted"><a href="<%= new_user_path %>"><strong>Register now</strong></a>! It is
                         easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
 
                 </div>
@@ -107,11 +106,10 @@ _________________________________________________________ -->
     <div class="container">
         <div class="navbar-header">
 
-            <a class="navbar-brand home" href="<%=AppContext.getBaseUrl()%>/index" data-animate-hover="bounce">
-                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/logo.png" alt="Obaju logo"
-                     class="hidden-xs">
-                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/logo-small.png" alt="Obaju logo"
-                     class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+            <a class="navbar-brand home" href="/" data-animate-hover="bounce">
+                     <%= image_tag 'obaju-img/logo.png', alt: 'Obaju logo', class: 'hidden-xs' %>
+                     <%= image_tag 'obaju-img/logo-small', alt: 'Obaju logo', class: 'visible-xs' %>
+                     <span class="sr-only">Obaju - go to homepage</span>
             </a>
 
             <div class="navbar-buttons">
@@ -123,7 +121,7 @@ _________________________________________________________ -->
                     <span class="sr-only">Toggle search</span>
                     <i class="fa fa-search"></i>
                 </button>
-                <a class="btn btn-default navbar-toggle" href="<%=AppContext.getBaseUrl()%>/basket?action=view">
+                <a class="btn btn-default navbar-toggle" href="<%= 'root' %>/basket?action=view">
                     <i class="fa fa-shopping-cart"></i> <span class="hidden-xs">${itemCount} items in cart</span>
                 </a>
             </div>
@@ -133,7 +131,7 @@ _________________________________________________________ -->
         <div class="navbar-collapse collapse" id="navigation">
 
             <ul class="nav navbar-nav navbar-left">
-                <li class="active"><a href="<%=AppContext.getBaseUrl()%>/index">Home</a>
+                <li class="active"><a href="<%= 'root' %>">Home</a>
                 </li>
                 <li class="dropdown yamm-fw">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Men
@@ -274,14 +272,12 @@ _________________________________________________________ -->
                                     <div class="col-sm-3">
                                         <div class="banner">
                                             <a href="#">
-                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/banner.jpg"
-                                                     class="img img-responsive" alt="">
+                                            <%= image_tag 'obaju-img/banner.jpg', class: 'img img-responsive', alt: '' %>
                                             </a>
                                         </div>
                                         <div class="banner">
                                             <a href="#">
-                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/banner2.jpg"
-                                                     class="img img-responsive" alt="">
+                                                <%= image_tag 'obaju-img/banner2.jpg', class: 'img img-responsive', alt: '' %>
                                             </a>
                                         </div>
                                     </div>
@@ -317,7 +313,7 @@ _________________________________________________________ -->
                                     <div class="col-sm-3">
                                         <h5>User</h5>
                                         <ul>
-                                            <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Register / login</a>
+                                            <li><a href="<%= new_user_path %>">Register / login</a>
                                             </li>
                                             <li><a href="customer-orders.html">Orders history</a>
                                             </li>
@@ -377,7 +373,7 @@ _________________________________________________________ -->
         <div class="navbar-buttons">
 
             <div class="navbar-collapse collapse right" id="basket-overview">
-                <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span
+                <a href="<%= 'root' %>/basket?action=view" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span
                         class="hidden-sm">${itemCount} items in cart</span></a>
             </div>
             <!--/.nav-collapse -->
@@ -393,7 +389,7 @@ _________________________________________________________ -->
 
         <div class="collapse clearfix" id="search">
 
-            <form class="navbar-form" role="search" action="<%=AppContext.getBaseUrl()%>/searchPage" method="post">
+            <form class="navbar-form" role="search" action="<%= 'root' %>/searchPage" method="post">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search" id="keyword" name="keyword">
                         <span class="input-group-btn">
@@ -423,20 +419,16 @@ _________________________________________________________ -->
             <div class="col-md-12">
                 <div id="main-slider">
                     <div class="item">
-                        <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/main-slider1.jpg" alt=""
-                             class="img-responsive">
+                    <%= image_tag 'obaju-img/main-slider1.jpg', alt: '', class: 'img-responsive' %>
                     </div>
                     <div class="item">
-                        <img class="img-responsive"
-                             src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/main-slider2.jpg" alt="">
+                    <%= image_tag 'obaju-img/main-slider2.jpg', alt: '', class: 'img-responsive' %>
                     </div>
                     <div class="item">
-                        <img class="img-responsive"
-                             src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/main-slider3.jpg" alt="">
+                    <%= image_tag 'obaju-img/main-slider3.jpg', alt: '', class: 'img-responsive' %>
                     </div>
                     <div class="item">
-                        <img class="img-responsive"
-                             src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/main-slider4.jpg" alt="">
+                    <%= image_tag 'obaju-img/main-slider4.jpg', alt: '', class: 'img-responsive' %>
                     </div>
                 </div>
                 <!-- /#main-slider -->
@@ -508,32 +500,33 @@ _________________________________________________________ -->
             <div class="container">
                 <div class="product-slider">
 
+                    <%#
                     <c:forEach items="${movieColumn}" var="movie">
                         <div class="item">
                             <div class="product">
                                 <div class="flip-container">
                                     <div class="flipper">
                                         <div class="front">
-                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">
-                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
+                                            <a href="/movies/detail?id=${movie.id}">
+                                                <img src="/assets/images/upload/${movie.picAddress}"
                                                      alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
-                                            <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">
-                                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
+                                            <a href="/movies/detail?id=${movie.id}">
+                                                <img src="/assets/images/upload/${movie.picAddress}"
                                                      alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}" class="invisible">
-                                    <img src="<%=AppContext.getBaseUrl()%>/resource/images/upload/${movie.picAddress}"
+                                <a href="/movie/${movie.id}" class="invisible">
+                                    <img src="/assets/images/upload/${movie.picAddress}"
                                          alt="" class="img-responsive">
                                 </a>
 
                                 <div class="text">
-                                    <h3><a href="<%=AppContext.getBaseUrl()%>/movie/detail?id=${movie.id}">Fur coat with very but very very long name</a></h3>
+                                    <h3><a href="/movies/${movie.id}">Fur coat with very but very very long name</a></h3>
 
                                     <p class="price">$${movie.price}</p>
                                 </div>
@@ -542,6 +535,7 @@ _________________________________________________________ -->
                             <!-- /.product -->
                         </div>
                     </c:forEach>
+                    %>
 
 
                 </div>
@@ -566,20 +560,17 @@ _________________________________________________________ -->
                     <div id="get-inspired" class="owl-carousel owl-theme">
                         <div class="item">
                             <a href="#">
-                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/getinspired1.jpg"
-                                     alt="Get inspired" class="img-responsive">
+                            <%= image_tag 'obaju-img/getinspired1.jpg', alt: 'Get inspeired', class: 'img-responsive' %>
                             </a>
                         </div>
                         <div class="item">
                             <a href="#">
-                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/getinspired2.jpg"
-                                     alt="Get inspired" class="img-responsive">
+                                <%= image_tag 'obaju-img/getinspired2.jpg', alt: 'Get inspeired', class: 'img-responsive' %>
                             </a>
                         </div>
                         <div class="item">
                             <a href="#">
-                                <img src="<%=AppContext.getBaseUrl()%>/resource/images/obaju-img/getinspired3.jpg"
-                                     alt="Get inspired" class="img-responsive">
+                                <%= image_tag 'obaju-img/getinspired3.jpg', alt: 'Get inspeired', class: 'img-responsive' %>
                             </a>
                         </div>
                     </div>
@@ -680,7 +671,7 @@ _________________________________________________________ -->
                     <ul>
                         <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                         </li>
-                        <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Regiter</a>
+                        <li><a href="<%= new_user_path %>">Regiter</a>
                         </li>
                     </ul>
 
@@ -817,14 +808,14 @@ _________________________________________________________ -->
 
 <!-- *** SCRIPTS TO INCLUDE ***
 _________________________________________________________ -->
-<script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/jquery-1.11.0.min.js"></script>
-<script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/bootstrap.min.js"></script>
-<script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/jquery.cookie.js"></script>
-<script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/waypoints.min.js"></script>
-<script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/modernizr.js"></script>
-<script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/bootstrap-hover-dropdown.js"></script>
-<script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/owl.carousel.min.js"></script>
-<script src="<%=AppContext.getBaseUrl()%>/resource/lib/obaju-js/front.js"></script>
+<%= javascript_include_tag 'obaju-js/jquery-1.11.0.min.js' %>
+<%= javascript_include_tag 'obaju-js/bootstrap.min.js' %>
+<%= javascript_include_tag 'obaju-js/jquery.cookie.js' %>
+<%= javascript_include_tag 'obaju-js/waypoints.min.js' %>
+<%= javascript_include_tag 'obaju-js/modernizr.js' %>
+<%= javascript_include_tag 'obaju-js/bootstrap-hover-dropdown.js' %>
+<%= javascript_include_tag 'obaju-js/owl.carousel.min.js' %>
+<%= javascript_include_tag 'obaju-js/front.js' %>
 
 
 </body>

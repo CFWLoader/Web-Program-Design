@@ -19,9 +19,8 @@
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<form role="form" action="<%=AppContext.getBaseUrl()%>/admin/doAddMovie" method="post" enctype="multipart/form-data">
+		<form role="form" action="<%= movies_path %>" method="post" enctype="multipart/form-data">
 				<div class="form-group">
-					 
 					<label for="movieName">
 						Movie Name
 					</label>
@@ -33,6 +32,13 @@
 						Price
 					</label>
 					<input type="text" class="form-control" id="priceStr" name="priceStr">
+				</div>
+				<div class="form-group">
+					 
+					<label for="priceStr">
+						Description
+					</label>
+					<input type="text" class="form-control" id="description" name="description">
 				</div>
 				<div class="form-group">
 					 
