@@ -51,6 +51,9 @@ class MoviesController < ApplicationController
 			format.json { render json: {result: :success} 
 
 		end
+
+		# render_json
+		
 	end
 
 	def handleFile movie_object, uploaded
