@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   # Movies self-defined routes
   get 'movies_/manage', to: 'movies#manage'
 
+  post '/movies_/addMovieToMovieColumn', to: 'movies#addMovieToMovieColumn'
+
 end
