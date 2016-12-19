@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import team.cfw.oms.base.entity.User;
 import team.cfw.oms.base.service.UserService;
+import team.cfw.oms.base.util.AppContext;
 import team.cfw.oms.business.service.OrderService;
 
 import javax.annotation.Resource;
@@ -80,6 +81,21 @@ public class UserController {
 
             models.put("orderList", orderService.getOrdersByUser(user, 0, 10));
         }
+
+        return "user/customer-orders";
+    }
+
+    @RequestMapping("/customer-orders")
+    public String customerOrdersPage(HttpSession session, Map<String, Object> models)
+    {
+        User user = (User) session.getAttribute("user");
+
+        if(user == null)
+        {
+            return "redirect:" + AppContext.getBaseUrl() + "/index";
+        }
+
+        models.put("orderList", orderService.getOrdersByUser(user, 0, 10));
 
         return "user/customer-orders";
     }
