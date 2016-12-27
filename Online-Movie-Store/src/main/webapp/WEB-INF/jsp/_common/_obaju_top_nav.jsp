@@ -7,21 +7,21 @@
 --%>
 <!-- *** TOPBAR ***
 _________________________________________________________ -->
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <div id="top">
   <div class="container">
     <div class="col-md-6 offer" data-animate="fadeInDown">
-      <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a> <a href="#">Get
-      flat 35% off on orders over $50!</a>
+      <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">今日折扣</a> <a href="#">购物超过100元享受8折优惠</a>
     </div>
     <div class="col-md-6" data-animate="fadeInDown">
       <ul class="menu">
-        <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+        <li><a href="#" data-toggle="modal" data-target="#login-modal">登录</a>
         </li>
-        <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Register</a>
+        <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">注册</a>
         </li>
-        <li><a href="contact.html">Contact</a>
+        <li><a href="contact.html">联系我们</a>
         </li>
-        <li><a href="#">Recently viewed</a>
+        <li><a href="#">最近浏览</a>
         </li>
       </ul>
     </div>
@@ -32,7 +32,7 @@ _________________________________________________________ -->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="Login">Customer login</h4>
+          <h4 class="modal-title" id="Login">用户登录</h4>
         </div>
         <div class="modal-body">
           <form action="<%=AppContext.getBaseUrl()%>/user/login" method="post"> <!--customer-orders.html-->
@@ -44,15 +44,14 @@ _________________________________________________________ -->
             </div>
 
             <p class="text-center">
-              <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+              <button class="btn btn-primary"><i class="fa fa-sign-in"></i> 登录</button>
             </p>
 
           </form>
 
-          <p class="text-center text-muted">Not registered yet?</p>
+          <p class="text-center text-muted">还没有账号？</p>
 
-          <p class="text-center text-muted"><a href="<%=AppContext.getBaseUrl()%>/user/registerPage"><strong>Register now</strong></a>! It is
-            easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+          <p class="text-center text-muted"><a href="<%=AppContext.getBaseUrl()%>/user/registerPage"><strong>现在注册</strong></a>！</p>
 
         </div>
       </div>
@@ -87,7 +86,7 @@ _________________________________________________________ -->
           <i class="fa fa-search"></i>
         </button>
         <a class="btn btn-default navbar-toggle" href="<%=AppContext.getBaseUrl()%>/basket?action=view">
-          <i class="fa fa-shopping-cart"></i> <span class="hidden-xs">${itemCount} items in cart</span>
+          <i class="fa fa-shopping-cart"></i> <span class="hidden-xs">${itemCount} 件物品</span>
         </a>
       </div>
     </div>
@@ -96,75 +95,80 @@ _________________________________________________________ -->
     <div class="navbar-collapse collapse" id="navigation">
 
       <ul class="nav navbar-nav navbar-left">
-        <li class="active"><a href="<%=AppContext.getBaseUrl()%>/index">Home</a>
+        <li class="active"><a href="<%=AppContext.getBaseUrl()%>/index">主页</a>
         </li>
         <li class="dropdown yamm-fw">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Men
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">电影
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
               <div class="yamm-content">
                 <div class="row">
                   <div class="col-sm-3">
-                    <h5>Clothing</h5>
+                    <h5>国产电影</h5>
                     <ul>
-                      <li><a href="category.html">T-shirts</a>
+                      <li><a href="category.html">动作片</a>
                       </li>
-                      <li><a href="category.html">Shirts</a>
+                      <li><a href="category.html">悬疑片</a>
                       </li>
-                      <li><a href="category.html">Pants</a>
+                      <li><a href="category.html">爱情片</a>
                       </li>
-                      <li><a href="category.html">Accessories</a>
+                      <li><a href="category.html">剧情片</a>
+                      </li>
+                      <li><a href="category.html">纪录片</a>
+                      </li>
+                      <li><a href="category.html">文艺片</a>
                       </li>
                     </ul>
                   </div>
                   <div class="col-sm-3">
-                    <h5>Shoes</h5>
+                    <h5>欧美</h5>
                     <ul>
-                      <li><a href="category.html">Trainers</a>
+                      <li><a href="category.html">动作片</a>
                       </li>
-                      <li><a href="category.html">Sandals</a>
+                      <li><a href="category.html">悬疑片</a>
                       </li>
-                      <li><a href="category.html">Hiking shoes</a>
+                      <li><a href="category.html">爱情片</a>
                       </li>
-                      <li><a href="category.html">Casual</a>
+                      <li><a href="category.html">剧情片</a>
+                      </li>
+                      <li><a href="category.html">纪录片</a>
+                      </li>
+                      <li><a href="category.html">文艺片</a>
                       </li>
                     </ul>
                   </div>
                   <div class="col-sm-3">
-                    <h5>Accessories</h5>
+                    <h5>日韩</h5>
                     <ul>
-                      <li><a href="category.html">Trainers</a>
+                      <li><a href="category.html">动作片</a>
                       </li>
-                      <li><a href="category.html">Sandals</a>
+                      <li><a href="category.html">悬疑片</a>
                       </li>
-                      <li><a href="category.html">Hiking shoes</a>
+                      <li><a href="category.html">爱情片</a>
                       </li>
-                      <li><a href="category.html">Casual</a>
+                      <li><a href="category.html">剧情片</a>
                       </li>
-                      <li><a href="category.html">Hiking shoes</a>
+                      <li><a href="category.html">纪录片</a>
                       </li>
-                      <li><a href="category.html">Casual</a>
+                      <li><a href="category.html">文艺片</a>
                       </li>
                     </ul>
                   </div>
                   <div class="col-sm-3">
-                    <h5>Featured</h5>
+                    <h5>其他</h5>
                     <ul>
-                      <li><a href="category.html">Trainers</a>
+                      <li><a href="category.html">动作片</a>
                       </li>
-                      <li><a href="category.html">Sandals</a>
+                      <li><a href="category.html">悬疑片</a>
                       </li>
-                      <li><a href="category.html">Hiking shoes</a>
+                      <li><a href="category.html">爱情片</a>
                       </li>
-                    </ul>
-                    <h5>Looks and trends</h5>
-                    <ul>
-                      <li><a href="category.html">Trainers</a>
+                      <li><a href="category.html">剧情片</a>
                       </li>
-                      <li><a href="category.html">Sandals</a>
+                      <li><a href="category.html">纪录片</a>
                       </li>
-                      <li><a href="category.html">Hiking shoes</a>
+                      <li><a href="category.html">文艺片</a>
                       </li>
                     </ul>
                   </div>
@@ -176,61 +180,48 @@ _________________________________________________________ -->
         </li>
 
         <li class="dropdown yamm-fw">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Ladies
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">电视剧
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
               <div class="yamm-content">
                 <div class="row">
                   <div class="col-sm-3">
-                    <h5>Clothing</h5>
+                    <h5>国产电视剧</h5>
                     <ul>
-                      <li><a href="category.html">T-shirts</a>
+                      <li><a href="category.html">古装剧</a>
                       </li>
-                      <li><a href="category.html">Shirts</a>
+                      <li><a href="category.html">现代剧</a>
                       </li>
-                      <li><a href="category.html">Pants</a>
+                      <li><a href="category.html">情景喜剧</a>
                       </li>
-                      <li><a href="category.html">Accessories</a>
+                      <li><a href="category.html">武侠剧</a>
                       </li>
                     </ul>
                   </div>
                   <div class="col-sm-3">
-                    <h5>Shoes</h5>
+                    <h5>欧美电视剧</h5>
                     <ul>
-                      <li><a href="category.html">Trainers</a>
+                      <li><a href="category.html">古装剧</a>
                       </li>
-                      <li><a href="category.html">Sandals</a>
+                      <li><a href="category.html">现代剧</a>
                       </li>
-                      <li><a href="category.html">Hiking shoes</a>
+                      <li><a href="category.html">情景喜剧</a>
                       </li>
-                      <li><a href="category.html">Casual</a>
+                      <li><a href="category.html">武侠剧</a>
                       </li>
                     </ul>
                   </div>
                   <div class="col-sm-3">
-                    <h5>Accessories</h5>
+                    <h5>日韩电视剧</h5>
                     <ul>
-                      <li><a href="category.html">Trainers</a>
+                      <li><a href="category.html">古装剧</a>
                       </li>
-                      <li><a href="category.html">Sandals</a>
+                      <li><a href="category.html">现代剧</a>
                       </li>
-                      <li><a href="category.html">Hiking shoes</a>
+                      <li><a href="category.html">情景喜剧</a>
                       </li>
-                      <li><a href="category.html">Casual</a>
-                      </li>
-                      <li><a href="category.html">Hiking shoes</a>
-                      </li>
-                      <li><a href="category.html">Casual</a>
-                      </li>
-                    </ul>
-                    <h5>Looks and trends</h5>
-                    <ul>
-                      <li><a href="category.html">Trainers</a>
-                      </li>
-                      <li><a href="category.html">Sandals</a>
-                      </li>
-                      <li><a href="category.html">Hiking shoes</a>
+                      <li><a href="category.html">武侠剧</a>
                       </li>
                     </ul>
                   </div>
@@ -256,73 +247,22 @@ _________________________________________________________ -->
         </li>
 
         <li class="dropdown yamm-fw">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">其他
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
               <div class="yamm-content">
                 <div class="row">
                   <div class="col-sm-3">
-                    <h5>Shop</h5>
+                    <h5>其他</h5>
                     <ul>
-                      <li><a href="index.html">Homepage</a>
+                      <li><a href="index.html">短片</a>
                       </li>
-                      <li><a href="category.html">Category - sidebar left</a>
+                      <li><a href="category.html">纪录片</a>
                       </li>
-                      <li><a href="category-right.html">Category - sidebar right</a>
+                      <li><a href="category-right.html">特摄片</a>
                       </li>
-                      <li><a href="category-full.html">Category - full width</a>
-                      </li>
-                      <li><a href="detail.html">Product detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-3">
-                    <h5>User</h5>
-                    <ul>
-                      <li><a href="<%=AppContext.getBaseUrl()%>/user/registerPage">Register / login</a>
-                      </li>
-                      <li><a href="customer-orders.html">Orders history</a>
-                      </li>
-                      <li><a href="customer-order.html">Order history detail</a>
-                      </li>
-                      <li><a href="customer-wishlist.html">Wishlist</a>
-                      </li>
-                      <li><a href="customer-account.html">Customer account / change password</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-3">
-                    <h5>Order process</h5>
-                    <ul>
-                      <li><a href="basket.html">Shopping cart</a>
-                      </li>
-                      <li><a href="checkout1.html">Checkout - step 1</a>
-                      </li>
-                      <li><a href="checkout2.html">Checkout - step 2</a>
-                      </li>
-                      <li><a href="checkout3.html">Checkout - step 3</a>
-                      </li>
-                      <li><a href="checkout4.html">Checkout - step 4</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-3">
-                    <h5>Pages and blog</h5>
-                    <ul>
-                      <li><a href="blog.html">Blog listing</a>
-                      </li>
-                      <li><a href="post.html">Blog Post</a>
-                      </li>
-                      <li><a href="faq.html">FAQ</a>
-                      </li>
-                      <li><a href="text.html">Text page</a>
-                      </li>
-                      <li><a href="text-right.html">Text page - right sidebar</a>
-                      </li>
-                      <li><a href="404.html">404 page</a>
-                      </li>
-                      <li><a href="contact.html">Contact</a>
+                      <li><a href="category-full.html">新闻</a>
                       </li>
                     </ul>
                   </div>
@@ -341,7 +281,7 @@ _________________________________________________________ -->
 
       <div class="navbar-collapse collapse right" id="basket-overview">
         <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span
-                class="hidden-sm">${itemCount} items in cart</span></a>
+                class="hidden-sm">${itemCount} 件物品</span></a>
       </div>
       <!--/.nav-collapse -->
 

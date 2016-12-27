@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+        在线电影商店
     </title>
 
     <meta name="keywords" content="">
@@ -37,9 +38,9 @@
             <div class="col-md-12">
 
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a>
+                    <li><a href="#">主页</a>
                     </li>
-                    <li>My orders</li>
+                    <li>我的订单</li>
                 </ul>
 
             </div>
@@ -50,23 +51,23 @@ _________________________________________________________ -->
                 <div class="panel panel-default sidebar-menu">
 
                     <div class="panel-heading">
-                        <h3 class="panel-title">Customer section</h3>
+                        <h3 class="panel-title">用户选项</h3>
                     </div>
 
                     <div class="panel-body">
 
                         <ul class="nav nav-pills nav-stacked">
                             <li class="active">
-                                <a href="customer-orders.html"><i class="fa fa-list"></i> My orders</a>
+                                <a href="customer-orders.html"><i class="fa fa-list"></i> 我的订单</a>
                             </li>
                             <li>
-                                <a href="customer-wishlist.html"><i class="fa fa-heart"></i> My wishlist</a>
+                                <a href="customer-wishlist.html"><i class="fa fa-heart"></i> 我的愿望清单</a>
                             </li>
                             <li>
-                                <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                                <a href="customer-account.html"><i class="fa fa-user"></i> 我的账户</a>
                             </li>
                             <li>
-                                <a href="<%=AppContext.getBaseUrl()%>/index"><i class="fa fa-sign-out"></i> Logout</a>
+                                <a href="<%=AppContext.getBaseUrl()%>/index"><i class="fa fa-sign-out"></i> 登出</a>
                             </li>
                         </ul>
                     </div>
@@ -79,12 +80,11 @@ _________________________________________________________ -->
 
             <div class="col-md-9" id="customer-orders">
                 <div class="box">
-                    <h1>My orders</h1>
+                    <h1>我的订单</h1>
 
-                    <p class="lead">Your orders on one place.</p>
+                    <p class="lead">您的订单正在一处</p>
 
-                    <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact
-                        us</a>, our customer service center is working for you 24/7.</p>
+                    <p class="text-muted">如果你有任何疑问，请 <a href="contact.html">联系我们</a>，我们的用户服务中心将全天候为您服务。</p>
 
                     <hr>
 
@@ -92,11 +92,11 @@ _________________________________________________________ -->
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>Order</th>
-                                <th>Date</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>订单</th>
+                                <th>日期</th>
+                                <th>总计</th>
+                                <th>状态</th>
+                                <th>活动</th>
                             </tr>
                             </thead>
                             <tbody>

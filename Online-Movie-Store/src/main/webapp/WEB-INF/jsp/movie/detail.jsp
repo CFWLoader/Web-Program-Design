@@ -1,5 +1,6 @@
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,7 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+        在线电影商店
     </title>
 
     <meta name="keywords" content="">
@@ -33,13 +34,13 @@
 
             <div class="col-md-12">
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a>
+                    <li><a href="#">主页</a>
                     </li>
-                    <li><a href="#">Ladies</a>
+                    <li><a href="#">电影</a>
                     </li>
-                    <li><a href="#">Tops</a>
+                    <li><a href="#">欧美</a>
                     </li>
-                    <li>White Blouse Armani</li>
+                    <li>动作片</li>
                 </ul>
 
             </div>
@@ -221,7 +222,7 @@ _________________________________________________________ -->
                     </div>
                     <div class="col-sm-6">
                         <div class="box">
-                            <h1 class="text-center">White Blouse Armani</h1>
+                            <h1 class="text-center">${movie.movieName}</h1>
 
                             <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details,
                                 material & care and sizing</a>

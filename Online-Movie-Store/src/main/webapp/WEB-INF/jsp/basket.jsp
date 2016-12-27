@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+        在线电影商店
     </title>
 
     <meta name="keywords" content="">
@@ -36,9 +37,9 @@
 
             <div class="col-md-12">
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a>
+                    <li><a href="#">主页</a>
                     </li>
-                    <li>Shopping cart</li>
+                    <li>购物车</li>
                 </ul>
             </div>
 
@@ -48,19 +49,19 @@
 
                     <form method="post" action="<%=AppContext.getBaseUrl()%>/checkout1">
 
-                        <h1>Shopping cart</h1>
+                        <h1>购物车</h1>
 
-                        <p class="text-muted">You currently have ${itemCount} item(s) in your cart.</p>
+                        <p class="text-muted">你已经有${itemCount}件物品在购物车中</p>
 
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th colspan="2">Product</th>
-                                    <th>Quantity</th>
-                                    <th>Unit price</th>
-                                    <th>Discount</th>
-                                    <th colspan="2">Total</th>
+                                    <th colspan="2">物品</th>
+                                    <th>数量</th>
+                                    <th>单价</th>
+                                    <th>折扣</th>
+                                    <th colspan="2">总价</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -90,7 +91,7 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th colspan="5">Total</th>
+                                    <th colspan="5">总计</th>
                                     <th colspan="2">${totalCost}</th>
                                 </tr>
                                 </tfoot>
@@ -102,11 +103,11 @@
                         <div class="box-footer">
                             <div class="pull-left">
                                 <a href="<%=AppContext.getBaseUrl()%>/index" class="btn btn-default"><i class="fa fa-chevron-left"></i>
-                                    Continue shopping</a>
+                                    继续购物</a>
                             </div>
                             <div class="pull-right">
-                                <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
-                                <button type="submit" class="btn btn-primary">Proceed to checkout <i
+                                <button class="btn btn-default"><i class="fa fa-refresh"></i> 刷新购物车</button>
+                                <button type="submit" class="btn btn-primary">结账 <i
                                         class="fa fa-chevron-right"></i>
                                 </button>
                             </div>
@@ -232,28 +233,27 @@
             <div class="col-md-3">
                 <div class="box" id="order-summary">
                     <div class="box-header">
-                        <h3>Order summary</h3>
+                        <h3>订单一览</h3>
                     </div>
-                    <p class="text-muted">Shipping and additional costs are calculated based on the values you have
-                        entered.</p>
+                    <p class="text-muted">购物的额外费用也将计算于其中。</p>
 
                     <div class="table-responsive">
                         <table class="table">
                             <tbody>
                             <tr>
-                                <td>Order subtotal</td>
+                                <td>订单总价</td>
                                 <th>$${totalCost}</th>
                             </tr>
                             <tr>
-                                <td>Shipping and handling</td>
+                                <td>快递费用</td>
                                 <th>$0.00</th>
                             </tr>
                             <tr>
-                                <td>Tax</td>
+                                <td>税收</td>
                                 <th>$0.00</th>
                             </tr>
                             <tr class="total">
-                                <td>Total</td>
+                                <td>总计</td>
                                 <th>$${totalCost}</th>
                             </tr>
                             </tbody>
@@ -265,9 +265,9 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h4>Coupon code</h4>
+                        <h4>优惠券兑换码</h4>
                     </div>
-                    <p class="text-muted">If you have a coupon code, please enter it in the box below.</p>
+                    <p class="text-muted">如果你有优惠券兑换码，请输入到下方空格中。</p>
 
                     <form>
                         <div class="input-group">

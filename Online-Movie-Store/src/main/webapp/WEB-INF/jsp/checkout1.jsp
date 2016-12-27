@@ -1,5 +1,6 @@
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,7 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+        在线电影商店
     </title>
 
     <meta name="keywords" content="">
@@ -34,9 +35,9 @@
 
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="<%=AppContext.getBaseUrl()%>/index">Home</a>
+                        <li><a href="<%=AppContext.getBaseUrl()%>/index">主页</a>
                         </li>
-                        <li>Checkout - Address</li>
+                        <li>结账 - 地址</li>
                     </ul>
                 </div>
 
@@ -44,15 +45,15 @@
 
                     <div class="box">
                         <form method="post" action="<%=AppContext.getBaseUrl()%>/checkout2">
-                            <h1>Checkout</h1>
+                            <h1>结账</h1>
                             <ul class="nav nav-pills nav-justified">
-                                <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
+                                <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>地址</a>
                                 </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                                <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>运输方式</a>
                                 </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
+                                <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>付款方式</a>
                                 </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+                                <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>订单回顾</a>
                                 </li>
                             </ul>
 
@@ -60,13 +61,13 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="firstname">Firstname</label>
+                                            <label for="firstname">姓</label>
                                             <input type="text" class="form-control" id="firstname" name="firstname">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="lastname">Lastname</label>
+                                            <label for="lastname">名</label>
                                             <input type="text" class="form-control" id="lastname" name="lastname">
                                         </div>
                                     </div>
@@ -82,7 +83,7 @@
                                     <%--</div>--%>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="address">Address</label>
+                                            <label for="address">地址</label>
                                             <input type="text" class="form-control" id="address" name="address" value="${address}">
                                         </div>
                                     </div>
@@ -117,13 +118,13 @@
 
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="phoneNumber">Telephone</label>
+                                            <label for="phoneNumber">联系电话</label>
                                             <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="email">Email</label>
+                                            <label for="email">邮箱地址</label>
                                             <input type="text" class="form-control" id="email" name="email">
                                         </div>
                                     </div>
@@ -134,10 +135,10 @@
 
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
+                                    <a href="<%=AppContext.getBaseUrl()%>/basket?action=view" class="btn btn-default"><i class="fa fa-chevron-left"></i>返回购物车</a>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                                    <button type="submit" class="btn btn-primary">下一步 运输方式<i class="fa fa-chevron-right"></i>
                                     </button>
                                 </div>
                             </div>
@@ -153,27 +154,27 @@
 
                     <div class="box" id="order-summary">
                         <div class="box-header">
-                            <h3>Order summary</h3>
+                            <h3>订单总览</h3>
                         </div>
-                        <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+                        <p class="text-muted">购物的额外费用也将计算于其中。.</p>
 
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <td>Order subtotal</td>
+                                        <td>订单总价</td>
                                         <th>$${totalCost}</th>
                                     </tr>
                                     <tr>
-                                        <td>Shipping and handling</td>
+                                        <td>快递费用</td>
                                         <th>$0</th>
                                     </tr>
                                     <tr>
-                                        <td>Tax</td>
+                                        <td>税收</td>
                                         <th>$0.00</th>
                                     </tr>
                                     <tr class="total">
-                                        <td>Total</td>
+                                        <td>总计</td>
                                         <th>$${totalCost}</th>
                                     </tr>
                                 </tbody>

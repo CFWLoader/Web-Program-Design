@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+        在线电影商店
     </title>
 
     <meta name="keywords" content="">
@@ -35,27 +36,27 @@
 
             <div class="col-md-12">
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a>
+                    <li><a href="#">主页</a>
                     </li>
-                    <li>Search result</li>
+                    <li>搜索结果</li>
                 </ul>
             </div>
 
-            <div class="col-md-9" id="basket">
+            <div class="col-md-12" id="basket">
 
                 <div class="box">
 
                     <form method="post" action="checkout1.html">
 
-                        <h1>Search result</h1>
+                        <h1>搜索结果</h1>
 
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th colspan="2">Product</th>
-                                    <th>Unit price</th>
-                                    <th>Discount</th>
+                                    <th colspan="2">产品</th>
+                                    <th>单价</th>
+                                    <th>折扣</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -91,7 +92,7 @@
                         <div class="box-footer">
                             <div class="pull-left">
                                 <a href="<%=AppContext.getBaseUrl()%>/index" class="btn btn-default"><i class="fa fa-chevron-left"></i>
-                                    Continue shopping</a>
+                                    继续购物</a>
                             </div>
                             <%--<div class="pull-right">--%>
                                 <%--<button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>--%>

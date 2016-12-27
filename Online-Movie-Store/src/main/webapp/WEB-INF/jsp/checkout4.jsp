@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+        在线电影商店
     </title>
 
     <meta name="keywords" content="">
@@ -34,9 +35,9 @@
 
             <div class="col-md-12">
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a>
+                    <li><a href="#">主页</a>
                     </li>
-                    <li>Checkout - Order review</li>
+                    <li>结账 - 订单回顾</li>
                 </ul>
             </div>
 
@@ -47,17 +48,15 @@
 
                         <input type="hidden" name="action" value="add" />
 
-                        <h1>Checkout - Order review</h1>
+                        <h1>结账 - 订单回顾</h1>
                         <ul class="nav nav-pills nav-justified">
-                            <li><a href="<%=AppContext.getBaseUrl()%>/checkout1"><i class="fa fa-map-marker"></i><br>Address</a>
+                            <li><a href="<%=AppContext.getBaseUrl()%>/checkout1"><i class="fa fa-map-marker"></i><br>地址</a>
                             </li>
-                            <li><a href="<%=AppContext.getBaseUrl()%>/checkout2"><i class="fa fa-truck"></i><br>Delivery
-                                Method</a>
+                            <li><a href="<%=AppContext.getBaseUrl()%>/checkout2"><i class="fa fa-truck"></i><br>运输方式</a>
                             </li>
-                            <li><a href="<%=AppContext.getBaseUrl()%>/checkout3"><i class="fa fa-money"></i><br>Payment
-                                Method</a>
+                            <li><a href="<%=AppContext.getBaseUrl()%>/checkout3"><i class="fa fa-money"></i><br>付款方式</a>
                             </li>
-                            <li class="active"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+                            <li class="active"><a href="#"><i class="fa fa-eye"></i><br>订单总览</a>
                             </li>
                         </ul>
 
@@ -66,11 +65,11 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th colspan="2">Product</th>
-                                        <th>Quantity</th>
-                                        <th>Unit price</th>
-                                        <th>Discount</th>
-                                        <th>Total</th>
+                                        <th colspan="2">商品</th>
+                                        <th>数量</th>
+                                        <th>单价</th>
+                                        <th>折扣</th>
+                                        <th>总价</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -94,7 +93,7 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th colspan="5">Total</th>
+                                        <th colspan="5">总计</th>
                                         <th>$${totalCost}</th>
                                     </tr>
                                     </tfoot>
@@ -108,10 +107,10 @@
                         <div class="box-footer">
                             <div class="pull-left">
                                 <a href="<%=AppContext.getBaseUrl()%>/checkout3" class="btn btn-default"><i
-                                        class="fa fa-chevron-left"></i>Back to Payment method</a>
+                                        class="fa fa-chevron-left"></i>返回到付款方式</a>
                             </div>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-primary">Place an order<i
+                                <button type="submit" class="btn btn-primary">生成订单<i
                                         class="fa fa-chevron-right"></i>
                                 </button>
                             </div>
@@ -128,28 +127,27 @@
 
                 <div class="box" id="order-summary">
                     <div class="box-header">
-                        <h3>Order summary</h3>
+                        <h3>订单总览</h3>
                     </div>
-                    <p class="text-muted">Shipping and additional costs are calculated based on the values you have
-                        entered.</p>
+                    <p class="text-muted">购物的额外费用也将计算于其中。</p>
 
                     <div class="table-responsive">
                         <table class="table">
                             <tbody>
                             <tr>
-                                <td>Order subtotal</td>
+                                <td>订单总价</td>
                                 <th>$${totalCost}</th>
                             </tr>
                             <tr>
-                                <td>Shipping and handling</td>
+                                <td>快递费用</td>
                                 <th>$0</th>
                             </tr>
                             <tr>
-                                <td>Tax</td>
+                                <td>税收</td>
                                 <th>$0.00</th>
                             </tr>
                             <tr class="total">
-                                <td>Total</td>
+                                <td>总价</td>
                                 <th>$${totalCost}</th>
                             </tr>
                             </tbody>

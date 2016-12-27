@@ -6,11 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Welcome to OMS!</title>
+    <title>欢迎来到在线电影商店</title>
 </head>
 <body>
-<h1>Successfully Registered!</h1>
+<h1>注册成功！</h1>
 </body>
 </html>

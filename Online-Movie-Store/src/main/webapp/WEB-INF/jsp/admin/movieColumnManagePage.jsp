@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Manage Movie Column Page</title>
+    <title>电影专栏管理页面</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -54,16 +55,16 @@
                 <thead>
                 <tr>
                     <th>
-                        ID
+                        编号
                     </th>
                     <th>
-                        Movie Name
+                        电影名称
                     </th>
                     <th>
-                        Price
+                        单价
                     </th>
                     <th>
-                        Add to column
+                        加入电影列表
                     </th>
                 </tr>
                 </thead>

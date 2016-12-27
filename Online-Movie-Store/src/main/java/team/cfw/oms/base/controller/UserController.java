@@ -32,10 +32,20 @@ public class UserController {
     }
 
     @RequestMapping("/doRegister")
-    public String doRegister(String username, String password1, String phoneNumber, String address) {
+    public String doRegister(String email, String password1, String phoneNumber, String address) {
         User user = new User();
 
-        user.setUsername(username);
+        if(phoneNumber == null)
+        {
+            phoneNumber = "";
+        }
+
+        if(address == null)
+        {
+            address = "";
+        }
+
+        user.setUsername(email);
         user.setPassword(password1);
         user.setPhoneNumber(phoneNumber);
         user.setAddress(address);
@@ -52,6 +62,8 @@ public class UserController {
     @RequestMapping("/checkUsernameExistence")
     public @ResponseBody Map<String, String> checkUsernameExistence(String username)
     {
+        System.out.println(username);
+
         Map<String, String> hashMap = new HashMap<String, String>();
 
         boolean isExisted = userService.checkUsernameExistence(username);

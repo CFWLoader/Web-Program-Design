@@ -1,6 +1,7 @@
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%--
   Created by IntelliJ IDEA.
   User: CFWLoader
@@ -11,7 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Show Movie Column Page</title>
+    <title>电影列表展示</title>
 </head>
 <body>
 <c:forEach items="${movieColumn}" var="movie">

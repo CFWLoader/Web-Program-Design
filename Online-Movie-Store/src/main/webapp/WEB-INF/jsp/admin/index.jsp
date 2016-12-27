@@ -1,4 +1,5 @@
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 3, from LayoutIt!</title>
+    <title>在线电影商店</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -21,17 +22,17 @@
     <div class="row">
         <div class="col-md-12">
             <h3 class="text-center">
-                Welcome! Administrator.
+                欢迎回来，管理员！
             </h3>
             <ul>
                 <li>
-                    <a href="<%=AppContext.getBaseUrl()%>/admin/addMoviePage">Add a movie.</a>
+                    <a href="<%=AppContext.getBaseUrl()%>/admin/addMoviePage">添加电影。</a>
                 </li>
                 <li>
-                    <a href="<%=AppContext.getBaseUrl()%>/admin/movieColumnManagePage">Manage movie column.</a>
+                    <a href="<%=AppContext.getBaseUrl()%>/admin/movieColumnManagePage">管理电影列表</a>
                 </li>
                 <li>
-                    <a href="<%=AppContext.getBaseUrl()%>/admin/showMovieColumnPage">Show movie column.</a>
+                    <a href="<%=AppContext.getBaseUrl()%>/admin/showMovieColumnPage">显示电影列表</a>
                 </li>
             </ul>
         </div>

@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+        在线电影商店
     </title>
 
     <meta name="keywords" content="">
@@ -36,11 +37,11 @@
                 <div class="col-md-12">
 
                     <ul class="breadcrumb">
-                        <li><a href="<%=AppContext.getBaseUrl()%>/index">Home</a>
+                        <li><a href="<%=AppContext.getBaseUrl()%>/index">主页</a>
                         </li>
-                        <li><a href="#">My orders</a>
+                        <li><a href="#">我的订单</a>
                         </li>
-                        <li>Order # ${order.id}</li>
+                        <li>订单 # ${order.id}</li>
                     </ul>
 
                 </div>
@@ -51,23 +52,23 @@
                     <div class="panel panel-default sidebar-menu">
 
                         <div class="panel-heading">
-                            <h3 class="panel-title">Customer section</h3>
+                            <h3 class="panel-title">用户选项</h3>
                         </div>
 
                         <div class="panel-body">
 
                             <ul class="nav nav-pills nav-stacked">
                                 <li class="active">
-                                    <a href="<%=AppContext.getBaseUrl()%>/order/customer-orders"><i class="fa fa-list"></i> My orders</a>
+                                    <a href="<%=AppContext.getBaseUrl()%>/order/customer-orders"><i class="fa fa-list"></i> 我的订单</a>
                                 </li>
                                 <li>
-                                    <a href="customer-wishlist.html"><i class="fa fa-heart"></i> My wishlist</a>
+                                    <a href="customer-wishlist.html"><i class="fa fa-heart"></i> 我的愿望清单</a>
                                 </li>
                                 <li>
-                                    <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                                    <a href="customer-account.html"><i class="fa fa-user"></i> 我的账户</a>
                                 </li>
                                 <li>
-                                    <a href="<%=AppContext.getBaseUrl()%>/index"><i class="fa fa-sign-out"></i> Logout</a>
+                                    <a href="<%=AppContext.getBaseUrl()%>/index"><i class="fa fa-sign-out"></i> 登出</a>
                                 </li>
                             </ul>
                         </div>
@@ -80,10 +81,10 @@
 
                 <div class="col-md-9" id="customer-order">
                     <div class="box">
-                        <h1>Order #1735</h1>
+                        <h1>订单 #1735</h1>
 
-                        <p class="lead">Order #1735 was placed on <strong>${order.orderedDate}</strong> and is currently <strong>Being prepared</strong>.</p>
-                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+                        <p class="lead">订单 #1735 产生于 <strong>${order.orderedDate}</strong> ，现在 <strong>正在处理中</strong>.</p>
+                        <p class="text-muted">如果你有任何疑问，请 <a href="contact.html">联系我们</a>，我们的用户服务中心将全天候为您服务。</p>
 
                         <hr>
 
@@ -91,11 +92,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th colspan="2">Product</th>
-                                        <th>Quantity</th>
-                                        <th>Unit price</th>
-                                        <th>Discount</th>
-                                        <th>Total</th>
+                                        <th colspan="2">产品</th>
+                                        <th>数量</th>
+                                        <th>单价</th>
+                                        <th>折扣</th>
+                                        <th>总价</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -145,19 +146,19 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="5" class="text-right">Order subtotal</th>
+                                        <th colspan="5" class="text-right">订单总价</th>
                                         <th>$${totalCost}</th>
                                     </tr>
                                     <tr>
-                                        <th colspan="5" class="text-right">Shipping and handling</th>
+                                        <th colspan="5" class="text-right">快递</th>
                                         <th>$0.00</th>
                                     </tr>
                                     <tr>
-                                        <th colspan="5" class="text-right">Tax</th>
+                                        <th colspan="5" class="text-right">税收</th>
                                         <th>$0.00</th>
                                     </tr>
                                     <tr>
-                                        <th colspan="5" class="text-right">Total</th>
+                                        <th colspan="5" class="text-right">总计</th>
                                         <th>$${totalCost}</th>
                                     </tr>
                                 </tfoot>
@@ -168,12 +169,12 @@
 
                         <div class="row addresses">
                             <div class="col-md-6">
-                                <h2>Invoice address</h2>
+                                <h2>发货地址</h2>
                                 <p>${order.receiverFirstName} ${order.receiverLastName}<br/>
                                 ${order.receiverAddress}</p>
                             </div>
                             <div class="col-md-6">
-                                <h2>Shipping address</h2>
+                                <h2>运送地址</h2>
                                 <p>${order.receiverFirstName} ${order.receiverLastName}<br/>
                                 ${order.receiverAddress}</p>
                             </div>

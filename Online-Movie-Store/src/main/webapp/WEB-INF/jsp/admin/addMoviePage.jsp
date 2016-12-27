@@ -1,4 +1,5 @@
 <%@ page import="team.cfw.oms.base.util.AppContext" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 3, from LayoutIt!</title>
+    <title>在线电影商店</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -24,26 +25,26 @@
 				<div class="form-group">
 					 
 					<label for="movieName">
-						Movie Name
+						电影名称
 					</label>
 					<input type="text" class="form-control" id="movieName" name="movieName">
 				</div>
 				<div class="form-group">
 					 
 					<label for="priceStr">
-						Price
+						单价
 					</label>
 					<input type="text" class="form-control" id="priceStr" name="priceStr">
 				</div>
 				<div class="form-group">
 					 
 					<label for="moviePic">
-						Movie Picture
+						电影截图
 					</label>
 					<input type="file" id="moviePic" name="moviePic">
 				</div>
 				<button type="submit" class="btn btn-default">
-					Submit
+					提交
 				</button>
 			</form>
 		</div>
