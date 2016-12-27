@@ -201,17 +201,25 @@
             });
             $("#password1").keyup(function(){
                 var password1=$("#password1").val();
-                if(password1.length<9)
+                if(password1.length<6)
                 {
-                    $("#password1").css("background-color","red");
+                    $("#password1").css("background-color","#FF0000");
+                }
+                else if(password1.length<8)
+                {
+                    $("#password1").css("background-color","#CC4400");
+                }
+                else if(password1.length<10)
+                {
+                    $("#password1").css("background-color","#888800");
                 }
                 else if(password1.length<12)
                 {
-                    $("#password1").css("background-color","yellow");
+                    $("#password1").css("background-color","#44CC00");
                 }
                 else
                 {
-                    $("#password1").css("background-color","green");
+                    $("#password1").css("background-color","#00FF00");
                 }
             });
         });
