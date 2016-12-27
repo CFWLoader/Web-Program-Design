@@ -112,7 +112,7 @@
 
             checkUsernameExistence();
 
-            if(!uExistence)
+            if(uExistence)
             {
                 document.getElementById("checkemail").style.color="red";
                 document.getElementById("checkemail").style.fontSize="12px";

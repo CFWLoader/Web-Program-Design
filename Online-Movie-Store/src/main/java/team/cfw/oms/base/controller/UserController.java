@@ -62,7 +62,7 @@ public class UserController {
     @RequestMapping("/checkUsernameExistence")
     public @ResponseBody Map<String, String> checkUsernameExistence(String username)
     {
-        System.out.println(username);
+        // System.out.println(username);
 
         Map<String, String> hashMap = new HashMap<String, String>();
 

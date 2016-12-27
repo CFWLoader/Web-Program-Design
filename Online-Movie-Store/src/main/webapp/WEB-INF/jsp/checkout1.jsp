@@ -20,7 +20,7 @@
 
     <meta name="keywords" content="">
 
-    <%@ include file="_common/_obaju_top_nav.jsp"%>
+    <%@ include file="_common/_obaju_css.jsp"%>
 
 </head>
 
