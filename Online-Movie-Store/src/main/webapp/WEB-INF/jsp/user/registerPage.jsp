@@ -21,6 +21,10 @@
 
     <%@ include file="../_common/_obaju_css.jsp"%>
 
+
+    <script src="<%=AppContext.getBaseUrl()%>/resource/lib/jquery-3.1.1.min.js">
+    </script>
+
     <script language="javascript" type="text/javascript">
 
         var uExistence = false;
@@ -182,7 +186,38 @@
                 return false;
             }
         }
+
+        $(document).ready(function(){
+            $("#sub").click(function(){
+                if(checkName()&&checkEmail()&&checkPassword()&&checkRepassword())
+                {
+                    $("#form1").attr("action","<%=AppContext.getBaseUrl()%>/user/doRegister");
+                    $("#form1").submit();
+                }
+                else
+                {
+                    $("#form1").attr("action","");
+                }
+            });
+            $("#password1").keyup(function(){
+                var password1=$("#password1").val();
+                if(password1.length<9)
+                {
+                    $("#password1").css("background-color","red");
+                }
+                else if(password1.length<12)
+                {
+                    $("#password1").css("background-color","yellow");
+                }
+                else
+                {
+                    $("#password1").css("background-color","green");
+                }
+            });
+        });
     </script>
+
+
 
 </head>
 
@@ -236,7 +271,7 @@
                                 <label id="checkrepeatpassword"> </label>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary" onclick="checkAll()"><i class="fa fa-user-md"></i> 注册</button>
+                                <button type="submit" class="btn btn-primary" id="sub"><i class="fa fa-user-md"></i> 注册</button>
                             </div>
                         </form>
                     </div>

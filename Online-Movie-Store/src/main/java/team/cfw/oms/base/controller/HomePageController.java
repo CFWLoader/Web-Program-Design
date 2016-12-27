@@ -1,6 +1,5 @@
 package team.cfw.oms.base.controller;
 
-import javafx.util.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,8 +14,6 @@ import team.cfw.oms.business.entity.trans.Triple;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
