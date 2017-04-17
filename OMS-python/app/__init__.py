@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from config import basedir
 
 app = Flask(__name__)                               # Creating a flask object.
