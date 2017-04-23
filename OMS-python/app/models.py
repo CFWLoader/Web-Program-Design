@@ -15,6 +15,8 @@ class User(db.Model):
 
     role = db.Column(db.SmallInteger, default=ROLE_USER)
 
+    posts = db.relationship('Post', db.backref('author'), db.lazyload('dynamic'))
+
     def __repr__(self):
 
         return '<User %r>' % self.nickname

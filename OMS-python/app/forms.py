@@ -15,7 +15,7 @@ class RegisterForm(Form):
 
     password = PasswordField('password', validators=[DataRequired()])
 
-    confirm = PasswordField('confirm', validators=[DataRequired()])
+    conform = PasswordField('conform', validators=[DataRequired()])
 
     def validate_nickname(self, field):
 
@@ -28,3 +28,37 @@ class RegisterForm(Form):
         elif not re.search(r'^\w+$', nickname):
 
             raise ValidationError('User names can contain only alpha-numeric characters and underscores.')
+
+        else:
+
+            u = User.query.filter_by(nickname=nickname).first()
+
+            if u is not None:
+
+                raise  ValidationError('The nickname already exists.')
+
+    def validate_email(self, field):
+
+        email = field.data.strip()
+
+        email = User.query.filter_by(email=email).first()
+
+        if email is not None:
+
+            raise ValidationError('The email already exists.')
+
+    def validate_password(self, field):
+
+        password = field.data.strip()
+
+        if (len(password)) < 6:
+
+            raise ValidationError('Password must be 3 letter at least.')
+
+    def validate_conform(self, field):
+
+        conform = field.data.strip()
+
+        if self.data['password'] != conform:
+
+            raise ValidationError('The password and conform are different.')
