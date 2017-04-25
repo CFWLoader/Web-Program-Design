@@ -62,3 +62,28 @@ class RegisterForm(Form):
         if self.data['password'] != conform:
 
             raise ValidationError('The password and conform are different.')
+
+
+class LoginForm(Form):
+
+    nickname = TextField('nickname', validators=[DataRequired()])
+
+    password = PasswordField('password', validators=[DataRequired()])
+
+    remember_me = BooleanField('remember_me', default=False)
+
+    def validate_nickname(self, field):
+
+        nickname = field.data.strip()
+
+        if len(nickname) < 3 or len(nickname) > 64:
+
+            raise ValidationError('Nickname\'s length should be 3-64 characters.')
+
+        elif not re.search(r'^\w+$', nickname):
+
+            raise ValidationError('User names can contain only alphanumeric characters and underscores.')
+
+        else:
+
+            return nickname
