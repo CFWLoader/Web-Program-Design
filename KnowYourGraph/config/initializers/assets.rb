@@ -17,3 +17,4 @@ Rails.application.config.assets.precompile += %w( tpmo_js/* )
 Rails.application.config.assets.precompile += %w( tpmo_img/* )
 Rails.application.config.assets.precompile += %w( tpmo_video/* )
 
+Rails.application.config.assets.precompile += %w( common/* )
