@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Users routes
   get 'users/login'
   post 'users/auth'
+  get 'users/logout'
   resources :users
 
   # User Console routes

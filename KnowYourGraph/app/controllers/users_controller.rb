@@ -86,11 +86,19 @@ class UsersController < ApplicationController
     if not @user.nil? and @user.auth params[:login_password]
 
       session[:user] = @user
-      
+
       redirect_to user_console_index_url
     else
       redirect_to users_login_url
     end
+
+  end
+
+  def logout
+
+    session[:user] = nil
+
+    redirect_to home_page_index_url
 
   end
 

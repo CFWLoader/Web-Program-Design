@@ -18,4 +18,10 @@ Rails.application.config.assets.precompile += %w( tpmo_js/* )
 Rails.application.config.assets.precompile += %w( tpmo_img/* )
 Rails.application.config.assets.precompile += %w( tpmo_video/* )
 
+Rails.application.config.assets.precompile += %w( sbtp39hs_css/* )
+Rails.application.config.assets.precompile += %w( sbtp39hs_fonts/* )
+Rails.application.config.assets.precompile += %w( sbtp39hs_js/* )
+Rails.application.config.assets.precompile += %w( sbtp39hs_img/* )
+# Rails.application.config.assets.precompile += %w( sbtp39sh_video/* )
+
 Rails.application.config.assets.precompile += %w( common/* )
