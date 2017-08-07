@@ -13,6 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( tpmo_css/* )
+Rails.application.config.assets.precompile += %w( tpmo_fonts/* )
 Rails.application.config.assets.precompile += %w( tpmo_js/* )
 Rails.application.config.assets.precompile += %w( tpmo_img/* )
 Rails.application.config.assets.precompile += %w( tpmo_video/* )

@@ -30,22 +30,21 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    # user_params
-    param_status = check_params params
 
+    # user_params
     @user = User.new(user_params)
 
-    # respond_to do |format|
-    #
-    #   if @user.save
-    #     format.html {redirect_to @user, notice: 'User was successfully created.'}
-    #     format.json {render :show, status: :created, location: @user}
-    #   else
-    #     format.html {render :new}
-    #     format.json {render json: @user.errors, status: :unprocessable_entity}
-    #   end
-    #
-    # end
+    respond_to do |format|
+
+      if @user.save
+        format.html {redirect_to @user, notice: 'User was successfully created.'}
+        format.json {render :show, status: :created, location: @user}
+      else
+        format.html {render :new}
+        format.json {render json: @user.errors, status: :unprocessable_entity}
+      end
+
+    end
   end
 
   # PATCH/PUT /users/1
@@ -71,6 +70,35 @@ class UsersController < ApplicationController
       format.json {head :no_content}
     end
   end
+
+  def login
+
+  end
+
+  def auth
+
+    @user = User.find_by_username(params[:username])
+
+    if @user.nil?
+      @user = User.find_by_email(params[:username])
+    end
+
+    if not @user.nil? and @user.auth params[:login_password]
+
+      session[:user] = @user
+      
+      redirect_to user_console_index_url
+    else
+      redirect_to users_login_url
+    end
+
+  end
+
+  # def check_params_ajax
+  #   respond_to do |format|
+  #     format.json {render json: check_params(params)}
+  #   end
+  # end
 
   private
   # Use callbacks to share common setup or constraints between actions.
