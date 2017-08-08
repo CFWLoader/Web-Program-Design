@@ -102,7 +102,7 @@ $(document).ready(function(){
 		e.preventDefault();
 
 		$(this).parent().find('ul').slideToggle();
-	
+
 	});
 			
 	/* ---------- Acivate Functions ---------- */

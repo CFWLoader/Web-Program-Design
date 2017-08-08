@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :user_console do
+    get 'demo/index'
+  end
+
   get 'user_console/index'
 
   # Homepage routes
@@ -14,6 +18,12 @@ Rails.application.routes.draw do
 
   # User Console routes
   get 'user_console/index'
+
+  namespace :user_console do
+
+    get 'demo/index'
+
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
