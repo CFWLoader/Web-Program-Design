@@ -3,6 +3,6 @@ class UserConsole::DemoController < ApplicationController
   end
 
   def page_rank_prepare
-    
+
   end
 end
