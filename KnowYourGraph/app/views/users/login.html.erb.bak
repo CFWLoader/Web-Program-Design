@@ -1,0 +1,8 @@
+<%= form_tag users_auth_url, name: :login_form do %>
+
+    <label>Username or email:</label><input type="text" name="username"/><br/>
+    <label>Password:</label><input type="password" name="login_password"/><br/>
+
+    <input type="submit" value="Login"/>
+
+<% end %>
