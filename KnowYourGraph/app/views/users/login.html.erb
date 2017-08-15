@@ -8,10 +8,11 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <!--<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">-->
-  <%= stylesheet_link_tag 'adminlte_css/bootstrap.min'%>
+  <%#= stylesheet_link_tag 'adminlte_css/bootstrap.min'%>
   <!-- Font Awesome -->
   <!--<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">-->
-  <%= stylesheet_link_tag 'adminlte_css/font-awesome.min'%>
+  <%#= stylesheet_link_tag 'adminlte_css/font-%>
+  <%= stylesheet_link_tag 'application', media: :all%>
   <!-- Ionicons -->
   <!--<link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">-->
   <%= stylesheet_link_tag 'adminlte_css/ionicons.min'%>
@@ -85,10 +86,10 @@
 
 <!-- jQuery 3 -->
 <!--<script src="../../bower_components/jquery/dist/jquery.min.js"></script>-->
-<%= javascript_include_tag 'adminlte_js/jquery.min'%>
+<%#= javascript_include_tag 'application' %>
 <!-- Bootstrap 3.3.7 -->
 <!--<script src="../../bower_components/bootstrap/distbootstrap.min.js.erbn.js"></script>-->
-<%= javascript_include_tag 'adminlte_js/bootstrap.min'%>
+<%#= javascript_include_tag 'adminlte_js/bootstrap.min'%>
 <!-- iCheck -->
 <%= javascript_include_tag 'adminlte_js/icheck.min'%>
 <!--<script src="../../plugins/iCheck/icheck.min.js"></script>-->

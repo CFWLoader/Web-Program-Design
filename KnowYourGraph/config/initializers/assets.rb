@@ -19,9 +19,9 @@ Rails.application.config.assets.precompile += %w( tpmo_img/* )
 Rails.application.config.assets.precompile += %w( tpmo_video/* )
 
 Rails.application.config.assets.precompile += %w( adminlte_css/* )
-Rails.application.config.assets.precompile += %w( adminlte_fonts/* )
+# Rails.application.config.assets.precompile += %w( adminlte_fonts/* )
 Rails.application.config.assets.precompile += %w( adminlte_js/* )
-Rails.application.config.assets.precompile += %w( adminlte_img/* )
+# Rails.application.config.assets.precompile += %w( adminlte_img/* )
 # Rails.application.config.assets.precompile += %w( sbtp39sh_video/* )
 
 Rails.application.config.assets.precompile += %w( common/* )
