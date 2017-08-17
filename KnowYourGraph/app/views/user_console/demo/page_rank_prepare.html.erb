@@ -1,3 +1,15 @@
+<%
+  def generating_a_modal_form()
+
+    form_tag '/user_console/upload_data_source', multipart: true do
+
+    file_field 'ajax_form', 'data_source_file'
+
+    end
+
+  end
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +67,17 @@
 <%#= content_tag :a, "Modal", href: "#modal", class: 'btn', data: {toggle: 'modal'} %>
 
 <%= modal_dialog id: "modal",
-                 header: { show_close: true, dismiss: 'modal', title: 'Upload File' },
-                 body:   { content: 'This is the body' },
-                 footer: { content: content_tag(:button, 'Save', class: 'btn') } %>
+                 header: {show_close: true, dismiss: 'modal', title: 'Upload File'},
+                 body: {content: generating_a_modal_form(), id: :ajax_form
+                 },
+                 footer: {content: content_tag(:button, 'Save', class: 'btn', id: :ajax_sub_btn)} %>
 </body>
 </html>
+
+<script type="text/javascript">
+  $('#ajax_sub_btn').click(
+      function(){
+          alert('hello!');
+      }
+  );
+</script>
