@@ -1,0 +1,27 @@
+<%= nav_bar fixed: :top, brand: "NYG Test Type", responsive: true do %>
+    <%= menu_group do %>
+        <%= menu_item "Home" %>
+        <%= menu_divider %>
+        <%= drop_down "Products" do %>
+            <%= menu_item "Things you can't afford" %>
+            <%= menu_item "Things that won't suit you anyway" %>
+            <%= menu_item "Things you're not even cool enough to buy anyway" %>
+<%# if current_user.lives_in_hackney? %>
+<%#= menu_item "Bikes", fixed_wheel_bikes_path %>
+<%# end %>
+        <% end %>
+        <%= menu_item "About Us" %>
+        <%= menu_item "Contact" %>
+    <% end %>
+    <%= menu_group pull: :right do %>
+        <% if true %>
+            <%= menu_item "Log Out" %>
+        <% else %>
+<%#= form_for @user, url: session_path(:user), html => {class: "navbar-form pull-right"} do |f| -%>
+            <!--<p><%#= f.text_field :email %></p>-->
+            <!--<p><%#= f.password_field :password %></p>-->
+            <!--<p><%#= f.submit "Sign in" %></p>-->
+<%# end -%>
+        <% end %>
+    <% end %>
+<% end %>

@@ -16,3 +16,5 @@
  *= require twitter-bootstrap-static/sprites
  *= require font-awesome
  */
+
+@import 'navbar-fixed-side.css';
