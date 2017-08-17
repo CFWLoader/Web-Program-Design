@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Know Your Graph</title>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-left: -32px;">
+
+  <div class="row">
+    <%= render 'user_console/common/navbar' %>
+  </div>
+
+  <div class="row" style="margin-top: 18px;">
+    <div class="col-sm-3 col-lg-2">
+      <%= render 'user_console/common/sidebar' %>
+    </div>
+
+    <div class="col-sm-9 col-lg-10">
+      <h1>Configure Page Rank Parameters</h1><br>
+      <%= form_tag 'demo/page_rank' do %>
+          <h3>Data Source</h3>
+          <table class="table table-responsive table-bordered">
+            <thead>
+            <tr>
+              <td>Name</td>
+              <td>Size(KB)</td>
+              <td>Vertices</td>
+              <td>Edges</td>
+              <td>Operation</td>
+            </tr>
+
+            </thead>
+
+            <tbody>
+            <tr>
+              <td>Test</td>
+              <td>?</td>
+              <td>?</td>
+              <td>?</td>
+              <td>?</td>
+            </tr>
+            </tbody>
+          </table>
+
+      <% end %>
+
+      <button class="btn" data-toggle="modal" data-target="#modal">Upload File</button>
+
+    </div>
+  </div>
+</div>
+
+<%#= content_tag :a, "Modal", href: "#modal", class: 'btn', data: {toggle: 'modal'} %>
+
+<%= modal_dialog id: "modal",
+                 header: { show_close: true, dismiss: 'modal', title: 'Upload File' },
+                 body:   { content: 'This is the body' },
+                 footer: { content: content_tag(:button, 'Save', class: 'btn') } %>
+</body>
+</html>
