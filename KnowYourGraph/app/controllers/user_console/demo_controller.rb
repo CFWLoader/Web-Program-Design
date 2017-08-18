@@ -1,5 +1,5 @@
 require 'services/native_file_service'
-require 'services/data_mining_algorithms'
+require 'services/graph_mining_algorithms'
 
 class UserConsole::DemoController < ApplicationController
   def index
@@ -32,7 +32,7 @@ class UserConsole::DemoController < ApplicationController
       pr_params['top_k'] = params['top_k'].to_i
     end
 
-    DataMiningAlgorithms::page_rank input_file, output_file, pr_params
+    GraphMiningAlgorithms::page_rank input_file, output_file, pr_params
 
     input_file.close
 

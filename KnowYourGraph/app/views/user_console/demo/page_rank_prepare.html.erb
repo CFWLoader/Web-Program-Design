@@ -1,9 +1,9 @@
 <%
   def generating_a_modal_form()
 
-    form_tag '/user_console/upload_data_source', id: :ajax_form, multipart: true do
+    form_tag '/user_console/upload_data_source', multipart: true do
 
-    file_field 'ajax_form', 'data_source_file'
+      file_field 'ajax_form', 'data_source_file'
 
     end
 
@@ -31,7 +31,10 @@
 
     <div class="col-sm-9 col-lg-10">
       <h1>Configure Page Rank Parameters</h1><br>
-      <%= form_tag '/user_console/demo/page_rank', name: 'pr_para_form' do %>
+      <%= form_tag '/user_console/demo/page_rank', name: 'pr_para_form', id: 'pr_para_form' do %>
+
+          <input type="hidden" id="button_action" value="normal"/>
+
           <h3>Data Source</h3>
           <table class="table table-responsive table-bordered">
             <thead>
@@ -50,7 +53,7 @@
             <% @data_source_files.each {|ds_file| %>
 
                 <tr>
-                  <td><input type="radio" name="req_file" value="<%= ds_file.id%>">Select to use this file</td>
+                  <td><input type="radio" name="req_file" value="<%= ds_file.id %>">Select to use this file</td>
                   <td><%= ds_file.file_name %></td>
                   <td><%= ds_file.file_size %></td>
                   <td><%= ds_file.vertices %></td>
@@ -62,7 +65,8 @@
             </tbody>
           </table>
 
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-file"></i> Upload File
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-file"></i> Upload
+            File
           </button>
 
           <h3>Convergent Iteration</h3>
@@ -71,10 +75,10 @@
           <h3>Result Capacity(Top K)</h3>
           <input type="number" class="form-control" value="" placeholder="Default=ALL" style="width: 15%;" name="top_k"/>
 
-          <br><br><button class="btn btn-danger"><i class="fa fa-space-shuttle fa-fw"></i>  Run</button>
+          <br><br>
+          <button class="btn btn-danger" id="run_btn"><i class="fa fa-space-shuttle fa-fw"></i> Run</button>
 
       <% end %>
-
 
 
     </div>
@@ -84,14 +88,25 @@
 <%#= content_tag :a, "Modal", href: "#modal", class: 'btn', data: {toggle: 'modal'} %>
 
 <%= modal_dialog id: "modal",
-                 header: {show_close: true, dismiss: 'modal', title: 'Upload File'},
-                 body: {content: generating_a_modal_form(), id: :ajax_form
-                 },
+                 header: {show_close: true, dismiss: 'modal', title: 'Upload File(Vertex Type Only)'},
+                 body: {content: generating_a_modal_form()},
                  footer: {content: content_tag(:button, 'Save', class: 'btn btn-primary', id: :ajax_sub_btn)} %>
 </body>
 </html>
 
 <script type="text/javascript">
+
+    $('#pr_para_form').submit(
+        function () {
+
+            if ($('#button_action').val() == 'submit') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    );
 
     $('#ajax_sub_btn').click(
         function () {
@@ -117,4 +132,8 @@
     function uploadSuccess() {
         alert('Successfully uploaded. Please refresh the page.');
     }
+
+    $('#run_btn').click(function () {
+        $('#button_action').val('submit');
+    });
 </script>
