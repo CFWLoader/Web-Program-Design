@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :user_console do
-    get 'demo/index'
-  end
-
   get 'user_console/index'
 
   # Homepage routes
@@ -25,6 +21,8 @@ Rails.application.routes.draw do
     get 'demo/index'
 
     get 'demo/page_rank_prepare'
+
+    post 'demo/page_rank'
 
   end
 
