@@ -22,7 +22,7 @@ module DataMiningAlgorithms
   # end
 
   def self.page_rank input, output, options = {}
-    
+
     
   end
 
