@@ -1,4 +1,4 @@
-<%= nav_bar fixed: :top, brand: "Know Your Graph", responsive: true do %>
+<%= nav_bar fixed: :top, brand: content_tag(:i, 'Know Your Graph', class: 'fa fa-eye'), responsive: true do %>
     <%= menu_group do %>
         <%= menu_item "Home" %>
         <%= menu_divider %>
@@ -15,7 +15,7 @@
     <% end %>
     <%= menu_group pull: :right do %>
         <% unless session[:user].nil? %>
-            <%= drop_down session[:user]['username'] do %>
+            <%= drop_down content_tag(:i, session[:user]['username'], class: 'fa fa-user-circle') do %>
                 <%= menu_item 'Your Profile' %>
                 <%= menu_item 'Logout', users_logout_url%>
             <% end %>
