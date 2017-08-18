@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   # User Console routes
   get 'user_console/index'
+  post 'user_console/upload_data_source'
 
   namespace :user_console do
 
