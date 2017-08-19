@@ -21,18 +21,26 @@ class UserConsole::DemoController < ApplicationController
     pr_params = {}
 
     if params['convergent_iteration'].nil? or params['convergent_iteration'] == ''
+
       pr_params['con_iter'] = 5
+
     else
+
       pr_params['con_iter'] = params['convergent_iteration'].to_i
+
     end
 
     if params['top_k'].nil? or params['top_k'] == ''
+
       pr_params['top_k'] = -1
+
     else
+
       pr_params['top_k'] = params['top_k'].to_i
+      
     end
 
-    GraphMiningAlgorithms::page_rank input_file, output_file, pr_params
+    GraphMiningAlgorithms::page_rank_light_demo input_file, output_file, pr_params
 
     input_file.close
 
