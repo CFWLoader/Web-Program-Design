@@ -8,6 +8,12 @@ class UserConsoleController < ApplicationController
 
   end
 
+  def tasks
+
+    @tasks_list = TaskDetail.find_all_by_initiator_id session[:user]['id']
+
+  end
+
   def upload_data_source
 
     uploaded = params[:file]

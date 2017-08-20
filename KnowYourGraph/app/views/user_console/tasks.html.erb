@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Know Your Graph</title>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-left: -32px;">
+
+  <div class="row">
+    <%= render 'user_console/common/navbar' %>
+  </div>
+
+  <div class="row" style="margin-top: 18px;">
+    <div class="col-sm-3 col-lg-2">
+      <%= render 'user_console/common/sidebar' %>
+    </div>
+
+    <div class="col-sm-9 col-lg-10">
+      <h1>Tasks</h1>
+      <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+          <td>File</td>
+          <td>Create Time</td>
+          <td>Parameters</td>
+          <td>Task State</td>
+        </tr>
+
+        </thead>
+
+        <tbody>
+        <% @tasks_list.each {|task| %>
+
+            <tr>
+              <td><%= task.file_id %></td>
+              <td><%= task.created_at %></td>
+              <td>
+                <% task.task_params.each_pair {|k, v| %>
+                    <%= "#{k}:#{v}" %><br/>
+                <% } %>
+              </td>
+              <td><%= task.task_state %></td>
+            </tr>
+        <% } %>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
