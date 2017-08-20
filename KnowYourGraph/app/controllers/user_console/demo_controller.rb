@@ -20,25 +20,13 @@ class UserConsole::DemoController < ApplicationController
     #
     pr_params = {}
 
-    if params['convergent_iteration'].nil? or params['convergent_iteration'] == ''
+    pr_params['convergent_iteration'] = (params['convergent_iteration'].nil? or params['convergent_iteration'] == '')?
+                                       5 : params['convergent_iteration'].to_i
 
-      pr_params['con_iter'] = 5
+    pr_params['top_k'] = (params['top_k'].nil? or params['top_k'] == '') ? -1 : params['top_k'].to_i
 
-    else
-
-      pr_params['con_iter'] = params['convergent_iteration'].to_i
-
-    end
-
-    if params['top_k'].nil? or params['top_k'] == ''
-
-      pr_params['top_k'] = -1
-
-    else
-
-      pr_params['top_k'] = params['top_k'].to_i
-
-    end
+    pr_params['damping_factor'] = (params['damping_factor'].nil? or params['damping_factor'] == '') ?
+                                      0.85 : params['damping_factor'].to_f
 
     task_detail = TaskDetail.new
 

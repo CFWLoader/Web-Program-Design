@@ -27,11 +27,15 @@
 
       <h3><span style="color: darkgray;">Source File:</span><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="<%= "/user_console/graph_data_files/#{@file_detail._id}"%>"><%= @file_detail.file_name %></a>
+        <% if @file_detail.nil? %>
+            The file doesn't exist.
+        <% else %>
+            <a href="<%= "/user_console/graph_data_files/#{@file_detail._id}" %>"><%= @file_detail.file_name %></a>
+        <% end %>
       </h3>
 
       <h3><span style="color: darkgray;">Task created at:</span><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @task.created_at %></h3>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @task.created_at %></h3>
 
       <h3><span style="color: darkgray;">Task Parameters:</span></h3>
       <% @task.task_params.each_pair {|k, v| %>

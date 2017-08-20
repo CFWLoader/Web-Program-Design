@@ -24,7 +24,7 @@ module GraphMiningAlgorithms
 
   def self.page_rank_light_demo input, output, options = {}
 
-    iteration_limit = options['con_iter']
+    iteration_limit = options['convergent_iteration']
 
     top_k = options['top_k']
 
