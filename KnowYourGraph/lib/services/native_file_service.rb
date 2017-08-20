@@ -8,4 +8,10 @@ module NativeFileService
 
   end
 
+  def self.get_result_path file_id
+
+    File.join(@@GLOBAL_FILE_DIR, 'result', file_id)
+
+  end
+
 end

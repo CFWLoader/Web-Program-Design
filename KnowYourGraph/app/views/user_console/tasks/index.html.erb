@@ -37,7 +37,7 @@
             <tr>
               <td><a href="<%= "/user_console/tasks/#{task._id}"%>"><%= task._id%></a></td>
               <td><%= task.file_id %></td>
-              <td><%= task.created_at %></td>
+              <td><%= Time::at(task.created_at) %></td>
               <td>
                 <% task.task_params.each_pair {|k, v| %>
                     <%= "#{k}:#{v}" %><br/>
