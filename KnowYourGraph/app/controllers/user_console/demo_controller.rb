@@ -46,9 +46,7 @@ class UserConsole::DemoController < ApplicationController
     task_detail.file_id= params['req_file']
     task_detail.task_state= 'In Queue'
 
-    task_detail.task_params= Hash.new
-
-    pr_params.each_pair{|k, v|task_detail.task_params[k]=v}
+    task_detail.task_params= pr_params._mongo_mapper_deep_copy_
 
     task_detail.save
 

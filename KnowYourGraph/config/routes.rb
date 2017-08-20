@@ -25,6 +25,11 @@ Rails.application.routes.draw do
 
     post 'demo/page_rank'
 
+    get 'tasks/index'
+    resources :tasks
+
+    resources :graph_data_files
+
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

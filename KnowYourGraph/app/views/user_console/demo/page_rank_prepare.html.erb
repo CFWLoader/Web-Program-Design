@@ -58,7 +58,11 @@
                   <td><%= ds_file.file_size %></td>
                   <td><%= ds_file.vertices %></td>
                   <td><%= ds_file.edges %></td>
-                  <td><i class="fa fa-times fa-fw"></i></td>
+                  <td>
+                    <!--<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="<%= "/user_console/graph_data_files/#{ds_file._id}" %>">-->
+                    <i class="fa fa-times fa-fw" title="Delete this file." onclick="ajaxDeleteFile('<%= ds_file._id%>')"></i>
+                    <!--</a>-->
+                  </td>
                 </tr>
             <% } %>
 
@@ -136,4 +140,24 @@
     $('#run_btn').click(function () {
         $('#button_action').val('submit');
     });
+
+    function ajaxDeleteFile(fileId) {
+        $.ajax(
+            {
+                url: '<%= '/user_console/graph_data_files/'%>' + fileId,
+                type: 'GET',
+                method: 'DELETE',
+                data: {id: fileId},
+                success: function (data, status) {
+                    if (data['message'] == 'succeeded') {
+                        alert('Successfully delete the file, please refresh the page.');
+                    }
+                    else
+                    {
+                        alert('Failed to delete the file, please contact the site admin.')
+                    }
+                }
+            }
+        );
+    }
 </script>

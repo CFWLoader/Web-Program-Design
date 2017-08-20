@@ -1,6 +1,6 @@
 module NativeFileService
 
-  @@GLOBAL_FILE_DIR = '/home/CFWLoader/upload_test'
+  @@GLOBAL_FILE_DIR = Rails.application.config.upload_base
 
   def self.get_physical_path file_id
 

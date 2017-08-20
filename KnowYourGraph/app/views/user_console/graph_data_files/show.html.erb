@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Know Your Graph</title>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-left: -32px;">
+
+  <div class="row">
+    <%= render 'user_console/common/navbar' %>
+  </div>
+
+  <div class="row" style="margin-top: 18px;">
+    <div class="col-sm-3 col-lg-2">
+      <%= render 'user_console/common/sidebar' %>
+    </div>
+
+    <div class="col-sm-9 col-lg-10">
+      <h1>Source File Detail</h1>
+
+
+      <h3><span style="color: darkgray;">File ID:</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @graph_data_file._id %>
+      </h3>
+
+      <h3><span style="color: darkgray;">File name:</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= @graph_data_file.file_name %>
+      </h3>
+
+      <h3><span style="color: darkgray;">File size:</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= @graph_data_file.file_size %> Bytes
+      </h3>
+
+      <h3><span style="color: darkgray;">Vertices:</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= @graph_data_file.vertices %>
+      </h3>
+
+      <h3><span style="color: darkgray;">Edges:</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= @graph_data_file.edges %>
+      </h3>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
