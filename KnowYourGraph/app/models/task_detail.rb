@@ -7,5 +7,6 @@ class TaskDetail
   field :file_id, type: String
   field :task_state, type: String
   field :task_params, type: Hash
+  field :outputs, type: Hash
 
 end

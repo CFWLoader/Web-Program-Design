@@ -18,7 +18,7 @@
     </div>
 
     <div class="col-sm-9 col-lg-10">
-      <h1>Tasks</h1>
+      <h1>Tasks <a href="<%= "/user_console/tasks/index"%>"><i class="fa fa-refresh fa-fw"></i></a></h1>
       <table class="table table-responsive table-bordered">
         <thead>
         <tr>
@@ -43,7 +43,7 @@
                     <%= "#{k}:#{v}" %><br/>
                 <% } %>
               </td>
-              <td><%= task.task_state %><a href="<%= "/user_console/tasks/refresh_state?id=#{task._id}"%>"><i class="fa fa-refresh fa-fw"></i></a> </td>
+              <td><%= task.task_state %> </td>
             </tr>
         <% } %>
 

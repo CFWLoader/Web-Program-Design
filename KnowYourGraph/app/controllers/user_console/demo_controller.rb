@@ -50,6 +50,8 @@ class UserConsole::DemoController < ApplicationController
 
     File.rename output_file.path, NativeFileService::get_result_path(task_detail._id.to_s + '.rslt')
 
+    task_detail.outputs= {result: task_detail._id.to_s + '.rslt'}
+
     task_detail.task_state= 'Finished'
 
     task_detail.save

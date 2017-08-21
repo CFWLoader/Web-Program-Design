@@ -48,6 +48,23 @@
       <h3><span style="color: darkgray;">Task State:</span><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @task.task_state %></h3>
 
+      <% if @task.task_state == 'Finished' %>
+
+          <h3><span style="color: darkgray;">Outputs:</span></h3>
+
+          <% @task.outputs.each_pair {|k, v| %>
+
+              <h4>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/user_console/tasks/download_task_output/<%=v%>"><%= k %></a>
+              </h4>
+
+          <% } %>
+
+      <% end %>
+
+
     </div>
   </div>
 </div>

@@ -1,3 +1,5 @@
+require 'services/native_file_service'
+
 class UserConsole::TasksController < ApplicationController
 
   before_action :set_task, only: [:show]
@@ -14,17 +16,26 @@ class UserConsole::TasksController < ApplicationController
 
   end
 
-  def refresh_state
+  def download_task_output
 
-    # @task = TaskDetail.find_by_id params[:id]
-    #
-    # @task.task_state = 'Test Tag'
-    #
-    # @task.save
+    complete_filename = params[:filename].to_s + '.' + params[:suffix].to_s
 
-    redirect_to '/user_console/tasks/index'
+    send_file(NativeFileService::get_result_path(complete_filename),
+              filename: complete_filename)
 
   end
+
+  # def refresh_state
+
+  # @task = TaskDetail.find_by_id params[:id]
+  #
+  # @task.task_state = 'Test Tag'
+  #
+  # @task.save
+
+  #  redirect_to '/user_console/tasks/index'
+
+  # end
 
   private
 
