@@ -43,7 +43,7 @@
                     <%= "#{k}:#{v}" %><br/>
                 <% } %>
               </td>
-              <td><%= task.task_state %></td>
+              <td><%= task.task_state %><a href="<%= "/user_console/tasks/refresh_state?id=#{task._id}"%>"><i class="fa fa-refresh fa-fw"></i></a> </td>
             </tr>
         <% } %>
 

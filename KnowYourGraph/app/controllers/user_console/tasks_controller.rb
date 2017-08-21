@@ -14,6 +14,18 @@ class UserConsole::TasksController < ApplicationController
 
   end
 
+  def refresh_state
+
+    # @task = TaskDetail.find_by_id params[:id]
+    #
+    # @task.task_state = 'Finished'
+    #
+    # TaskDetail.find_and_modify :query => {'_id': @task._id}, :update => {'$set': {'task_state': @task.task_state}}
+
+    redirect_to '/user_console/tasks/index'
+
+  end
+
   private
 
   def set_task

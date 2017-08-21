@@ -14,10 +14,6 @@ class UserConsole::DemoController < ApplicationController
 
   def page_rank
 
-    input_file = File.open(NativeFileService.get_physical_path(params['req_file']), 'r')
-
-    output_file = File.open(NativeFileService.get_result_path(params['req_file'] + '.lock'), 'w')
-
     pr_params = {}
 
     pr_params['convergent_iteration'] = (params['convergent_iteration'].nil? or params['convergent_iteration'] == '')?
@@ -38,13 +34,21 @@ class UserConsole::DemoController < ApplicationController
 
     task_detail.save
 
+    input_file = File.open(NativeFileService.get_physical_path(task_detail.file_id), 'r')
+
+    output_file = File.open(NativeFileService.get_result_path(task_detail._id.to_s + '.lock'), 'w')
+
     GraphMiningAlgorithms::page_rank_light_demo input_file, output_file, pr_params
 
     input_file.close
 
     output_file.close
 
-    File.rename output_file.path, NativeFileService::get_result_path(params['req_file'] + '.rslt')
+    File.rename output_file.path, NativeFileService::get_result_path(task_detail._id.to_s + '.rslt')
+
+    task_detail.task_state= 'Finished'
+
+    TaskDetail.find_and_modify :query => {'_id': task_detail._id}, :update => {'$set': {'task_state': task_detail.task_state}}
 
   end
 

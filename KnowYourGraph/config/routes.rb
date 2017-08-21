@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     post 'demo/page_rank'
 
     get 'tasks/index'
+    get 'tasks/refresh_state'
     resources :tasks
 
     resources :graph_data_files
