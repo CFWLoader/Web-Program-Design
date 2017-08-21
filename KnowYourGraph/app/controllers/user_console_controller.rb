@@ -20,7 +20,7 @@ class UserConsoleController < ApplicationController
 
     graph_data_file = GraphDataFile.new
 
-    graph_data_file.uploader_id= session[:user]['id']
+    graph_data_file.uploader_id= session[:user]['_id']['$oid']
 
     graph_data_file.file_name= uploaded.original_filename
 

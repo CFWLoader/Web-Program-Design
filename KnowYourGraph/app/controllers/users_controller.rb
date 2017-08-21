@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def create
 
     # user_params
-    @user = User.new(user_params)
+    @user = User.create user_params
 
     respond_to do |format|
 
@@ -77,10 +77,10 @@ class UsersController < ApplicationController
 
   def auth
 
-    @user = User.find_by_username(params[:username])
+    @user = User.find_by(username: params[:username])
 
     if @user.nil?
-      @user = User.find_by_email(params[:username])
+      @user = User.find_by(email: params[:username])
     end
 
     if not @user.nil? and @user.auth params[:login_password]
@@ -119,7 +119,8 @@ class UsersController < ApplicationController
 
     raw_params = params.require(:user).permit(:username, :email, :password_first, :admin, :vistor, :researcher)
 
-    translated_params = ActionController::Parameters.new
+    #translated_params = ActionController::Parameters.new
+    translated_params = {}
 
     translated_params[:username] = raw_params[:username]
     translated_params[:email] = raw_params[:email]
@@ -127,7 +128,7 @@ class UsersController < ApplicationController
     translated_params[:password_salt] = translated_params.object_id.to_s + rand.to_s
     translated_params[:password_hash] = Digest::SHA2.hexdigest raw_params[:password_first] + translated_params[:password_salt]
 
-    translated_params[:role] = Set.new
+    translated_params[:role] = []
     translated_params[:role] << 'vistor' if raw_params[:vistor] == '1'
     translated_params[:role] << 'admin' if raw_params[:admin] == '1'
     translated_params[:role] << 'researcher' if raw_params[:researcher] == '1'

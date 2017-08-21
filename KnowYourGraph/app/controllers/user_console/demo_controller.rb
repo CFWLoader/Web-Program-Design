@@ -8,7 +8,11 @@ class UserConsole::DemoController < ApplicationController
   def page_rank_prepare
 
     # @data_source_files = GraphDataFile.find_by_uploader_id(session[:user]['id']);
-    @data_source_files = GraphDataFile.find_all_by_uploader_id(session[:user]['id'])
+    @data_source_files = GraphDataFile.where(uploader_id: session[:user]['_id']['$oid'])
+
+    # p @data_source_files.class
+    #
+    # @data_source_files = [] if @data_source_files.nil?
 
   end
 
@@ -26,11 +30,11 @@ class UserConsole::DemoController < ApplicationController
 
     task_detail = TaskDetail.new
 
-    task_detail.initiator_id= session[:user]['id']
+    task_detail.initiator_id= session[:user]['_id']['$oid']
     task_detail.file_id= params['req_file']
     task_detail.task_state= 'In Queue'
 
-    task_detail.task_params= pr_params._mongo_mapper_deep_copy_
+    task_detail.task_params= pr_params.clone
 
     task_detail.save
 
@@ -48,7 +52,7 @@ class UserConsole::DemoController < ApplicationController
 
     task_detail.task_state= 'Finished'
 
-    TaskDetail.find_and_modify :query => {'_id': task_detail._id}, :update => {'$set': {'task_state': task_detail.task_state}}
+    task_detail.save
 
   end
 

@@ -4,7 +4,7 @@ class UserConsole::TasksController < ApplicationController
 
   def index
 
-    @tasks_list = TaskDetail.find_all_by_initiator_id session[:user]['id'], :order => :created_at.desc
+    @tasks_list = TaskDetail.order_by(created_at: :desc).where(initiator_id: session[:user]['_id']['$oid'])
 
   end
 
@@ -16,13 +16,11 @@ class UserConsole::TasksController < ApplicationController
 
   def refresh_state
 
-    @task = TaskDetail.find_by_id params[:id]
-
-    @task.task_state = 'Test Tag'
-
-    @task.save
-
-    # TaskDetail.find_and_modify :query => {'_id': @task._id}, :update => {'$set': {'task_state': @task.task_state}}
+    # @task = TaskDetail.find_by_id params[:id]
+    #
+    # @task.task_state = 'Test Tag'
+    #
+    # @task.save
 
     redirect_to '/user_console/tasks/index'
 

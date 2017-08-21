@@ -1,17 +1,18 @@
 class User
-  include MongoMapper::Document
+  # include MongoMapper::Document
+  include Mongoid::Document
 
   validates :username, uniqueness: true
 
-  key :username, String
-  key :password_hash, String
-  key :password_salt, String
-  key :email, String
-  key :role, Set
+  field :username, type: String
+  field :password_hash, type: String
+  field :password_salt, type: String
+  field :email, type: String
+  field :role, type: Set
 
   def auth password
 
-    Digest::SHA2.hexdigest(password + @password_salt) == @password_hash
+    Digest::SHA2.hexdigest(password + self.password_salt) == self.password_hash
 
   end
 

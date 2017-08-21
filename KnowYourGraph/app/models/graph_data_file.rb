@@ -1,11 +1,12 @@
 class GraphDataFile
 
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :uploader_id, String
-  key :file_name, String
-  key :file_size, Integer
-  key :vertices, Integer
-  key :edges, Integer
+  field :uploader_id, type: String
+  field :file_name, type: String
+  field :file_size, type: Integer
+  field :vertices, type: Integer
+  field :edges, type: Integer
 
 end

@@ -1,12 +1,11 @@
 class TaskDetail
 
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :initiator_id, String
-  key :file_id, String
-  key :task_state, String
-  key :task_params, Hash
-
-  timestamps!
+  field :initiator_id, type: String
+  field :file_id, type: String
+  field :task_state, type: String
+  field :task_params, type: Hash
 
 end
