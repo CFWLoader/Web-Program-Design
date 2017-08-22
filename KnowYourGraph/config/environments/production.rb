@@ -89,5 +89,5 @@ Rails.application.configure do
   ENV["SECRET_KEY_BASE"]='966460b83d659c6c411cb94ef71d716d6a139b58a5d2d4072d579973c0d01b551b61b2ef1586186ac8bff81c3baa9431b472fe255d40f3fe3ad61daea6d36aac'
 
   # Store path
-  config.upload_base = '/home/CFWLoader/upload_test'
+  config.upload_base = '/srv/rails_app/kyg_uploads'
 end

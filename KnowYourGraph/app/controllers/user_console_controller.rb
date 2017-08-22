@@ -1,3 +1,5 @@
+require 'services/native_file_service'
+
 class UserConsoleController < ApplicationController
 
   def index
@@ -32,7 +34,7 @@ class UserConsoleController < ApplicationController
 
     graph_data_file.save
 
-    File.open(File.join('/home/CFWLoader/upload_test', graph_data_file.id), 'w') { |native_file|
+    File.open(File.join(NativeFileService::get_physical_path graph_data_file.id), 'w') { |native_file|
       native_file.write(uploaded.read)
     }
 
