@@ -23,6 +23,7 @@
         <thead>
         <tr>
           <td>ID</td>
+          <td>Brief</td>
           <td>File</td>
           <td>Create Time</td>
           <td>Parameters</td>
@@ -36,6 +37,7 @@
 
             <tr>
               <td><a href="<%= "/user_console/tasks/#{task._id}"%>"><%= task._id%></a></td>
+              <td><%= task.brief %></td>
               <td><%= task.file_id %></td>
               <td><%= Time::at(task.created_at) %></td>
               <td>

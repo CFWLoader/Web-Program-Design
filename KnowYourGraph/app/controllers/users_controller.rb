@@ -128,7 +128,7 @@ class UsersController < ApplicationController
     translated_params[:password_salt] = translated_params.object_id.to_s + rand.to_s
     translated_params[:password_hash] = Digest::SHA2.hexdigest raw_params[:password_first] + translated_params[:password_salt]
 
-    translated_params[:role] = {}
+    translated_params[:role] = []
     translated_params[:role] << 'vistor' if raw_params[:vistor] == '1'
     translated_params[:role] << 'admin' if raw_params[:admin] == '1'
     translated_params[:role] << 'researcher' if raw_params[:researcher] == '1'

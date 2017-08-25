@@ -36,42 +36,7 @@
           <input type="hidden" id="button_action" value="normal"/>
 
           <h3>Data Source</h3>
-          <table class="table table-responsive table-bordered">
-            <thead>
-            <tr>
-              <td width="15%">Requisition</td>
-              <td>Name</td>
-              <td>Size(Byte)</td>
-              <td>Vertices</td>
-              <td>Edges</td>
-              <td>Operation</td>
-            </tr>
-
-            </thead>
-
-            <tbody>
-            <% @data_source_files.each {|ds_file| %>
-
-                <tr>
-                  <td><input type="radio" name="req_file" value="<%= ds_file.id %>">Select to use this file</td>
-                  <td><%= ds_file.file_name %></td>
-                  <td><%= ds_file.file_size %></td>
-                  <td><%= ds_file.vertices %></td>
-                  <td><%= ds_file.edges %></td>
-                  <td>
-                    <!--<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="<%= "/user_console/graph_data_files/#{ds_file._id}" %>">-->
-                    <i class="fa fa-times fa-fw" title="Delete this file." onclick="ajaxDeleteFile('<%= ds_file._id%>')"></i>
-                    <!--</a>-->
-                  </td>
-                </tr>
-            <% } %>
-
-            </tbody>
-          </table>
-
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-file"></i> Upload
-            File
-          </button>
+          <%= render 'user_console/common/filelist'%>
 
           <h3>Convergent Iteration</h3>
           <input type="number" class="form-control" value="" placeholder="Default=5" style="width: 15%;" name="convergent_iteration"/>
@@ -155,8 +120,7 @@
                     if (data['message'] == 'succeeded') {
                         alert('Successfully delete the file, please refresh the page.');
                     }
-                    else
-                    {
+                    else {
                         alert('Failed to delete the file, please contact the site admin.')
                     }
                 }

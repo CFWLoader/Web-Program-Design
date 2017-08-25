@@ -50,5 +50,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Store path
-  config.upload_base = '/home/CFWLoader/upload_test'
+  config.upload_base = '/srv/rails_app/kyg_uploads'
 end

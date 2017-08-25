@@ -8,5 +8,6 @@ class GraphDataFile
   field :file_size, type: Integer
   field :vertices, type: Integer
   field :edges, type: Integer
+  field :tags, type: Array, default: []
 
 end

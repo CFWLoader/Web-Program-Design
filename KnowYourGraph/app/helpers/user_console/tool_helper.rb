@@ -1,0 +1,2 @@
+module UserConsole::ToolHelper
+end

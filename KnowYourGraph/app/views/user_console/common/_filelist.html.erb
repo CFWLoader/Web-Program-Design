@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <table class="table table-responsive table-bordered">
+    <thead>
+    <tr>
+      <td width="15%">Requisition</td>
+      <td>Name</td>
+      <td>Size(Byte)</td>
+      <td>Vertices</td>
+      <td>Edges</td>
+      <td>Tags</td>
+      <td>Operation</td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    <% @data_source_files.each {|ds_file| %>
+
+        <tr>
+          <td><input type="radio" name="req_file" value="<%= ds_file.id %>">Select to use this file</td>
+          <td><%= ds_file.file_name %></td>
+          <td><%= ds_file.file_size %></td>
+          <td><%= ds_file.vertices %></td>
+          <td><%= ds_file.edges %></td>
+          <td>
+            <% ds_file.tags.each {|tag| %>
+                <%= tag %><br/>
+            <% } %>
+          </td>
+          <td>
+            <!--<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="<%= "/user_console/graph_data_files/#{ds_file._id}" %>">-->
+            <i class="fa fa-times fa-fw" title="Delete this file." onclick="ajaxDeleteFile('<%= ds_file._id%>')"></i>
+            <!--</a>-->
+          </td>
+        </tr>
+    <% } %>
+
+    </tbody>
+  </table>
+
+  <button class="btn btn-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-file"></i> Upload
+    File
+  </button>
+</div>

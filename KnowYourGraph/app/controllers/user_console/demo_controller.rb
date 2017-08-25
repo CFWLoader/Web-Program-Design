@@ -30,6 +30,7 @@ class UserConsole::DemoController < ApplicationController
 
     task_detail = TaskDetail.new
 
+    task_detail.brief = 'Page Rank'
     task_detail.initiator_id= session[:user]['_id']['$oid']
     task_detail.file_id= params['req_file']
     task_detail.task_state= 'In Queue'
