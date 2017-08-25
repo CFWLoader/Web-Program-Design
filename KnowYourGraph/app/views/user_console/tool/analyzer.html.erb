@@ -1,2 +1,37 @@
-<h1>UserConsole::Tool#analyzer</h1>
-<p>Find me in app/views/user_console/tool/analyzer.html.erb</p>
+<%#
+  def generating_a_modal_form()
+
+    form_tag '/user_console/upload_data_source', id: :ajax_form, multipart: true do
+
+    file_field 'ajax_form', 'data_source_file'
+
+    end
+
+  end
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Know Your Graph</title>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-left: -32px;">
+
+  <div class="row">
+    <%= render 'user_console/common/navbar' %>
+  </div>
+
+  <div class="row" style="margin-top: 18px;">
+    <div class="col-sm-3 col-lg-2">
+      <%= render 'user_console/common/sidebar' %>
+    </div>
+
+    <div class="col-sm-9 col-lg-10">
+      <h1>Analyzer Resulting</h1><br>
+      Your graph computation has been submitted. Please check it on your <a href="<%= '/user_console/tasks'%>">tasks tables</a>.
+    </div>
+  </div>
+</div>

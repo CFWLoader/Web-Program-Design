@@ -22,6 +22,23 @@ module GraphMiningAlgorithms
   #
   # end
 
+  def self.simple_graph_counter input
+
+    edge_count = 0
+    vertices_count = 0
+
+    input.each {|line|
+
+      vertices_count += 1
+
+      edge_count += line.split(' ').size - 1
+
+    }
+
+    return vertices_count, edge_count
+
+  end
+
   def self.page_rank_light_demo input, output, options = {}
 
     iteration_limit = options['convergent_iteration']

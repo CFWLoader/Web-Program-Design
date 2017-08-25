@@ -1,29 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :user_console do
-    get 'tool/metis_prepare'
-  end
-
-  namespace :user_console do
-    get 'tool/metis'
-  end
-
-  namespace :user_console do
-    get 'tool/analyzer_prepare'
-  end
-
-  namespace :user_console do
-    get 'tool/analyzer'
-  end
-
-  namespace :user_console do
-    get 'tool/rehasher_prepare'
-  end
-
-  namespace :user_console do
-    get 'tool/rehasher'
-  end
-
   get 'user_console/index'
 
   # Homepage routes
@@ -38,7 +14,7 @@ Rails.application.routes.draw do
 
   # User Console routes
   get 'user_console/index'
-  get 'user_console/tasks'
+
   post 'user_console/upload_data_source'
 
   namespace :user_console do
@@ -49,6 +25,7 @@ Rails.application.routes.draw do
 
     post 'demo/page_rank'
 
+    # get 'tasks', 'tasks#index'
     get 'tasks/index'
     # get 'tasks/refresh_state'
     get 'tasks/download_task_output/:filename.:suffix', to: 'tasks#download_task_output'
