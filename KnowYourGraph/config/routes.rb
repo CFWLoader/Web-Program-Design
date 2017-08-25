@@ -1,5 +1,29 @@
 Rails.application.routes.draw do
 
+  namespace :user_console do
+    get 'tool/metis_prepare'
+  end
+
+  namespace :user_console do
+    get 'tool/metis'
+  end
+
+  namespace :user_console do
+    get 'tool/analyzer_prepare'
+  end
+
+  namespace :user_console do
+    get 'tool/analyzer'
+  end
+
+  namespace :user_console do
+    get 'tool/rehasher_prepare'
+  end
+
+  namespace :user_console do
+    get 'tool/rehasher'
+  end
+
   get 'user_console/index'
 
   # Homepage routes
@@ -31,6 +55,13 @@ Rails.application.routes.draw do
     resources :tasks
 
     resources :graph_data_files
+
+    get 'tool/analyzer_prepare'
+    get 'tool/analyzer'
+    get 'tool/metis_prepare'
+    get 'tool/metis'
+    get 'tool/rehasher_prepare'
+    get 'tool/rehasher'
 
   end
 

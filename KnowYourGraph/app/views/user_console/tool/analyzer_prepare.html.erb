@@ -1,0 +1,166 @@
+<%
+  def generating_a_modal_form()
+
+    form_tag '/user_console/upload_data_source', multipart: true do
+
+      file_field 'ajax_form', 'data_source_file'
+
+    end
+
+  end
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Know Your Graph</title>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-left: -32px;">
+
+  <div class="row">
+    <%= render 'user_console/common/navbar' %>
+  </div>
+
+  <div class="row" style="margin-top: 18px;">
+    <div class="col-sm-3 col-lg-2">
+      <%= render 'user_console/common/sidebar' %>
+    </div>
+
+    <div class="col-sm-9 col-lg-10">
+      <h1>Configure Page Rank Parameters</h1><br>
+      <%= form_tag '/user_console/demo/page_rank', name: 'pr_para_form', id: 'pr_para_form' do %>
+
+          <input type="hidden" id="button_action" value="normal"/>
+
+          <h3>Data Source</h3>
+          <table class="table table-responsive table-bordered">
+            <thead>
+            <tr>
+              <td width="15%">Requisition</td>
+              <td>Name</td>
+              <td>Size(Byte)</td>
+              <td>Vertices</td>
+              <td>Edges</td>
+              <td>Operation</td>
+            </tr>
+
+            </thead>
+
+            <tbody>
+            <% @data_source_files.each {|ds_file| %>
+
+                <tr>
+                  <td><input type="radio" name="req_file" value="<%= ds_file.id %>">Select to use this file</td>
+                  <td><%= ds_file.file_name %></td>
+                  <td><%= ds_file.file_size %></td>
+                  <td><%= ds_file.vertices %></td>
+                  <td><%= ds_file.edges %></td>
+                  <td>
+                    <!--<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="<%= "/user_console/graph_data_files/#{ds_file._id}" %>">-->
+                    <i class="fa fa-times fa-fw" title="Delete this file." onclick="ajaxDeleteFile('<%= ds_file._id%>')"></i>
+                    <!--</a>-->
+                  </td>
+                </tr>
+            <% } %>
+
+            </tbody>
+          </table>
+
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-file"></i> Upload
+            File
+          </button>
+
+          <!--<h3>Convergent Iteration</h3>-->
+          <!--<input type="number" class="form-control" value="" placeholder="Default=5" style="width: 15%;" name="convergent_iteration"/>-->
+
+          <!--<h3>Result Capacity(Top K)</h3>-->
+          <!--<input type="number" class="form-control" value="" placeholder="Default=ALL" style="width: 15%;" name="top_k"/>-->
+
+          <!--<h3>Damping Factor</h3>-->
+          <!--<input type="text" class="form-control" value="" placeholder="Default=0.85" style="width: 15%;" name="damping_factor"/>-->
+
+          <!--<br><br>-->
+          <!--<button class="btn btn-danger" id="run_btn"><i class="fa fa-space-shuttle fa-fw"></i> Run</button>-->
+
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+<%#= content_tag :a, "Modal", href: "#modal", class: 'btn', data: {toggle: 'modal'} %>
+
+<%= modal_dialog id: "modal",
+                 header: {show_close: true, dismiss: 'modal', title: 'Upload File(Vertex Type Only)'},
+                 body: {content: generating_a_modal_form()},
+                 footer: {content: content_tag(:button, 'Save', class: 'btn btn-primary', id: :ajax_sub_btn)} %>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $('#pr_para_form').submit(
+        function () {
+
+            if ($('#button_action').val() == 'submit') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    );
+
+    $('#ajax_sub_btn').click(
+        function () {
+
+            var formData = new FormData();
+
+            formData.append('file', $('#ajax_form_data_source_file')[0].files[0]);
+
+            $.ajax({
+                url: '<%= url_for '/user_console/upload_data_source'%>',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: uploadSuccess
+            });
+
+            $('#modal').modal('toggle');
+
+        }
+    );
+
+    function uploadSuccess() {
+        alert('Successfully uploaded. Please refresh the page.');
+    }
+
+    $('#run_btn').click(function () {
+        $('#button_action').val('submit');
+    });
+
+    function ajaxDeleteFile(fileId) {
+        $.ajax(
+            {
+                url: '<%= '/user_console/graph_data_files/'%>' + fileId,
+                type: 'GET',
+                method: 'DELETE',
+                data: {id: fileId},
+                success: function (data, status) {
+                    if (data['message'] == 'succeeded') {
+                        alert('Successfully delete the file, please refresh the page.');
+                    }
+                    else
+                    {
+                        alert('Failed to delete the file, please contact the site admin.')
+                    }
+                }
+            }
+        );
+    }
+</script>
