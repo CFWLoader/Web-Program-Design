@@ -30,23 +30,53 @@
     </div>
 
     <div class="col-sm-9 col-lg-10">
-      <h1>Check Graph Info</h1><br>
-      <%= form_tag '/user_console/tool/analyzer', name: 'pr_para_form', id: 'pr_para_form', method: 'GET' do %>
+      <h1>File Management</h1><br>
 
-          <input type="hidden" id="button_action" value="normal"/>
+      <div class="container-fluid">
+        <table class="table table-responsive table-bordered">
+          <thead>
+          <tr>
+            <!--<td width="15%">Requisition</td>-->
+            <td>Name</td>
+            <td>Size(Byte)</td>
+            <td>Vertices</td>
+            <td>Edges</td>
+            <td>Tags</td>
+            <td>Operation</td>
+          </tr>
 
-          <h3>Data Source</h3>
-          <%= render 'user_console/common/filelist' %>
+          </thead>
 
-          <h3>Sources File Type</h3>
-          <select class="form-control" style="width: 20%;" name="file_type">
-            <option value="Directed Unweighted Vertices">Directed Unweighted Vertices</option>
-          </select>
+          <tbody>
+          <% @data_source_files.each {|ds_file| %>
 
-          <br/><br/>
-          <button class="btn btn-danger" id="run_btn"><i class="fa fa-space-shuttle fa-fw"></i> Check</button>
+              <tr>
+                <!--<td><input type="radio" name="req_file" value="<%= ds_file.id %>">Select to use this file</td>-->
+                <td><%= ds_file.file_name %></td>
+                <td><%= ds_file.file_size %></td>
+                <td><%= ds_file.vertices %></td>
+                <td><%= ds_file.edges %></td>
+                <td>
+                  <% ds_file.tags.each {|tag| %>
+                      <%= tag %><br/>
+                  <% } %>
+                </td>
+                <td>
+                  <%= link_to "/user_console/graph_data_files/#{ds_file.id}/edit" do %><i class="fa fa-edit fa-fw" title="Edit this file." ></i> <% end %>
+                  <!--<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="<%= "/user_console/graph_data_files/#{ds_file._id}" %>">-->
+                  <i class="fa fa-times fa-fw" title="Delete this file." onclick="ajaxDeleteFile('<%= ds_file._id%>')"></i>
+                  <!--</a>-->
+                </td>
+              </tr>
+          <% } %>
 
-      <% end %>
+          </tbody>
+        </table>
+
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-file"></i> Upload
+          File
+        </button>
+      </div>
 
 
     </div>
@@ -116,8 +146,7 @@
                     if (data['message'] == 'succeeded') {
                         alert('Successfully delete the file, please refresh the page.');
                     }
-                    else
-                    {
+                    else {
                         alert('Failed to delete the file, please contact the site admin.')
                     }
                 }

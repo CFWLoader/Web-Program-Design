@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'tasks/download_task_output/:filename.:suffix', to: 'tasks#download_task_output'
     resources :tasks
 
+    get 'graph_data_files/index'
     resources :graph_data_files
 
     get 'tool/analyzer_prepare'
