@@ -21,34 +21,43 @@
       <h1>Source File Detail</h1>
 
       <div class="container-fluid">
-        <%= form_with model: @graph_data_file, url: '/user_console/graph_data_files/update' do |form| %>
-            <%= form.label 'File Name:' %><%= form.text_field 'file_name', class: 'form-control' %>
-        <% end %>
+        <%= form_with model: @graph_data_file, url: "/user_console/graph_data_files/#{@graph_data_file._id}" do |form| %>
+
+            <input type="hidden" name="method" value="patch">
+
+            <h3><span style="color: darkgray;">File ID:</span><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @graph_data_file._id %>
+            </h3>
+
+            <h3><span style="color: darkgray;">Uploader ID:</span><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @graph_data_file.uploader_id %>
+            </h3>
+
+            <h3><span style="color: darkgray;">File Name:</span></h3>
+            <%= form.text_field 'file_name', class: 'form-control', style: 'width: 20%;' %>
+
+            <h3><span style="color: darkgray;">File size:</span><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= @graph_data_file.file_size %> Bytes
+            </h3>
+
+            <h3><span style="color: darkgray;">Vertices:</span></h3>
+            <%= form.number_field 'vertices', class: 'form-control', style: 'width: 20%;' %>
+
+            <h3><span style="color: darkgray;">Edges:</span><br/>
+            </h3>
+
+            <%= form.number_field 'edges', class: 'form-control', style: 'width: 20%;' %>
+
+            <h3><span style="color: darkgray;">Tags:</span><br/>
+            </h3>
+            <%= form.text_field 'tags', class: 'form-control', style: 'width: 50%;', value: @graph_data_file.tags %>
+
+            <br><br>
+            <%= form.submit class: 'btn btn-primary' %>
+
+      <% end %>
       </div>
-
-      <h3><span style="color: darkgray;">File ID:</span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @graph_data_file._id %>
-      </h3>
-
-      <h3><span style="color: darkgray;">File name:</span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= @graph_data_file.file_name %>
-      </h3>
-
-      <h3><span style="color: darkgray;">File size:</span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= @graph_data_file.file_size %> Bytes
-      </h3>
-
-      <h3><span style="color: darkgray;">Vertices:</span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= @graph_data_file.vertices %>
-      </h3>
-
-      <h3><span style="color: darkgray;">Edges:</span><br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= @graph_data_file.edges %>
-      </h3>
 
     </div>
   </div>

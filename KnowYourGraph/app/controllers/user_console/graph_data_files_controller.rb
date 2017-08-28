@@ -2,7 +2,7 @@ require 'services/native_file_service'
 
 class UserConsole::GraphDataFilesController < ApplicationController
 
-  before_action :set_graph_data_file, only: [:show, :edit, :destroy]
+  before_action :set_graph_data_file, only: [:show, :edit, :destroy, :update]
 
   def index
 
@@ -17,6 +17,28 @@ class UserConsole::GraphDataFilesController < ApplicationController
   end
 
   def update
+
+    filename = params['graph_data_file']['file_name']
+    vertices = params['graph_data_file']['vertices'].to_i
+    edges = params['graph_data_file']['edges'].to_i
+    tags = params['graph_data_file']['tags'].split ' '
+
+    @graph_data_file.file_name = filename
+    @graph_data_file.vertices = vertices
+    @graph_data_file.edges = edges
+
+    @graph_data_file.tags = []
+
+    tags.each {|tag| @graph_data_file.tags << tag}
+
+    @graph_data_file.update
+
+    respond_to {|format|
+
+      format.html {redirect_to "/user_console/graph_data_files/#{@graph_data_file.id}/edit"}
+
+    }
+
   end
 
   def destroy
