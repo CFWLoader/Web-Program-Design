@@ -1,34 +1,40 @@
-class GenericVertex
+module GenericVertex
 
   attr_reader :vertex_id
 
-  attr_accessor :neighbors, :weight
+  # attr_accessor :neighbors, :weight
 
-  def initialize vertex_id, weight = 1.0, neighbors = {}
+  def initialize vertex_id
 
     @vertex_id = vertex_id
 
-    @weight = weight
-
-    @neighbors = neighbors
-
-  end
-
-  def add_neighbor! new_neighbor, weight = 1.0
-
-    @neighbors[new_neighbor] = weight
+    # @weight = weight
+    #
+    # @neighbors = neighbors
 
   end
 
-  def include? vertex_id
-
-    @neighbors.has_key? vertex_id
+  def add_neighbor!
 
   end
 
-  def delete_neighbor! vertex_id
+  def has_neighbor?
 
-    @neighbors.delete vertex_id
+  end
+
+  def delete_neighbor!
+
+  end
+
+  def self.included x
+
+    ms = x.instance_methods(false)
+
+    [:add_neighbor!, :has_neighbor?, :delete_neighbor!].each {|method_sym|
+
+      raise "#{method_sym} should be implement in sub-class or sub-module." unless ms.include?(method_sym)
+
+    }
 
   end
 
